@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cecd6ea6cc41135469869970b091fa33
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _Player: {fileID: 2974080258222159099, guid: c154c5285e40b9a4e98d44ed8c2c1831, type: 3}
+  - _PlayerController: {fileID: 5739139285907800099, guid: 0db7a443c93fd0641b2a393bc8a80d1b, type: 3}
+  - _GridMap: {fileID: 6008383817648043377, guid: b6c265f40547b0e4fb0c1793de1fb6e3, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Assets/Editor/AssetBundle/QAssetBundleEditor.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Editor/AssetBundle/QAssetBundleManager.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Export/Class/Gladiatus.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Export/CollisionTrigger.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Export/Frame/CoreFrame.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Class/Gladiatus.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Frame/CoreFrame.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Physics/OnGroundSensor2D.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Other/Interface/I_OpponentUnit.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Other/Timer/GlobalTimer.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Other/Timer2/MonoSingleton.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Other/Timer2/Timer.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/Stopwatch.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/Timer/GlobalTimer.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/Timer/timerCeShi.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/Timer2/MonoSingleton.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/Timer2/Timer.cs" charset="GBK" />
+  </component>
+</project>

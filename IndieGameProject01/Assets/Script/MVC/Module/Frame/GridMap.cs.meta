@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 083eda7dd306f33409835a6361b6e2eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _Player: {instanceID: 0}
+  - Tile: {instanceID: 0}
+  - planePos: {instanceID: 0}
+  - PlaneMesh: {fileID: 5923976825587393526, guid: b7a683b876a923f44ae01fe880026dad, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
