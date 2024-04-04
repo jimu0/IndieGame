@@ -42,6 +42,43 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer\TimerTest.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer2\Timer.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer2\Timer2Test.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\PawnController\PlayerController.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Frame\GridMap.cs" />
+     <Compile Include="Assets\Script\MVC\View\DataManager.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Class\Character.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer2\MonoSingleton.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Character\OpponentUnit.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer2\TimerDriver.cs" />
+     <Compile Include="Assets\Art\Map\setPlanePos.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer2\TimerManager.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Library\Function\FLb.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\Interface\I_PlayerUnit.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Frame\Initialization.cs" />
+     <Compile Include="Assets\Script\MVC\Other\pawnAttribut.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Frame\CoreFrame.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Class\Actor.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Character\Player.cs" />
+     <Compile Include="Assets\Script\MVC\Other\Timer\GlobalTimer.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Physics\Phys.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Collision\CollisionTrigger.cs" />
+     <Compile Include="Assets\Script\MVC\Module\User\Movement.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Class\Gladiatus.cs" />
+     <Compile Include="Assets\Script\MVC\Module\User\SpringArm.cs" />
+     <Compile Include="Assets\Art\Map\PlanePos.cs" />
+     <Compile Include="Assets\Art\Map\worldPos2shaderUV.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\Interface\I_OpponentUnit.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Frame\GameMode.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Physics\OnGroundSensor2D.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\PawnController\AIController.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Class\Pawn.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\PawnController\PlayerController_2D.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Character\PlayerUnit.cs" />
+     <Compile Include="Assets\Art\Map\Plane26Mesh.cs" />
+     <None Include="Assets\Art\Map\StarUnionFunction.cginc" />
+     <None Include="Assets\Art\Map\S_PlaneMap.shader" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
