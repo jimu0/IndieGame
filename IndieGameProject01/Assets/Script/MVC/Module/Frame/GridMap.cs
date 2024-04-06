@@ -17,7 +17,7 @@ namespace Script.MVC.Module.Frame
 
         private void Awake()
         {
-            Vector2Int v = new();
+            Vector2Int v = new Vector2Int();
             for (int iy = 0; iy < MapSize.y; iy++)
             {
                 v.y = iy;
