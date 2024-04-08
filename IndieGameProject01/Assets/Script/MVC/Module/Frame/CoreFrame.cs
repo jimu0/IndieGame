@@ -6,13 +6,13 @@ namespace Script.MVC.Module.Frame
 {
     public class CoreFrame : MonoBehaviour
     {
-        public float KMK_Size = 5;//视域尺寸
-        public int KMK_SizeInt;//视域尺寸
+        public float KMK_Size = 5;//
+        public int KMK_SizeInt;
         private int KMK_SizeO;
-        public List<Vector2Int> KMK_View = new List<Vector2Int>();//视域
-        private List<Vector2Int> KMK_ViewN = new List<Vector2Int>();//视域新
-        private List<Vector2Int> KMK_ViewO = new List<Vector2Int>();//视域旧
-        public Vector2Int KMK_Pos = new Vector2Int(0,0);//当前视域位置
+        public List<Vector2Int> KMK_View = new List<Vector2Int>();//????
+        private List<Vector2Int> KMK_ViewN = new List<Vector2Int>();//??????
+        private List<Vector2Int> KMK_ViewO = new List<Vector2Int>();//?????
+        public Vector2Int KMK_Pos = new Vector2Int(0,0);//???????λ??
         private Vector2Int KMK_PosO;
         private Vector2Int KMK_v;
         public static bool KMK_update = false;
@@ -43,16 +43,16 @@ namespace Script.MVC.Module.Frame
 
         }
 
-        //调试程序_画线
+        //???????_????
         public void OnDrawGizmos()
         {
             Gizmos.DrawLine(Vector3.zero, new Vector3(0, 3f, 0));
         }
 
         /// <summary>
-        /// 获取视域
+        /// ???????
         /// </summary>
-        /// <param name="pos">目标位置</param>
+        /// <param name="pos">???λ??</param>
         public void GetKMK_View(Vector3Int pos)
         {
             if (KMK_Pos.x != pos.x) { KMK_Pos.x = pos.x; }
@@ -92,7 +92,7 @@ namespace Script.MVC.Module.Frame
             //KMK_ViewN = FLb.GetRilesRegion_Circle(KMK_Pos, KMK_SizeInt, KMK_View, KMK_v);
             KMK_ViewO.Clear();
             KMK_ViewO.AddRange(KMK_View);
-            KMK_ViewN.Clear();//清空新坐标组缓存池
+            KMK_ViewN.Clear();//??????????黺???
             Vector2Int pos = new Vector2Int();
             for (int y = 0; y < KMK_SizeInt*2+1; y++)
             {
