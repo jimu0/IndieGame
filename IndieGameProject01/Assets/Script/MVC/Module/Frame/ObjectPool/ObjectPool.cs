@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Script.MVC.Module.Frame.ObjectPool
 {
   /// <summary>
-  ///   <para>A stack based Pool.IObjectPool_1.</para>
+  ///   <para>基于堆栈的Pool.IObjectPool_1.</para>
   /// </summary>
   public class ObjectPool<T> : IDisposable, IObjectPool<T> where T : class
   {
@@ -31,12 +32,10 @@ namespace Script.MVC.Module.Frame.ObjectPool
       int defaultCapacity = 10,
       int maxSize = 10000)
     {
-      if (createFunc == null)
-        throw new ArgumentNullException(nameof (createFunc));
       if (maxSize <= 0)
-        throw new ArgumentException("Max Size must be greater than 0", nameof (maxSize));
+        throw new ArgumentException("最大尺寸必须大于0", nameof (maxSize));
       MStack = new Stack<T>(defaultCapacity);
-      mCreateFunc = createFunc;
+      mCreateFunc = createFunc ?? throw new ArgumentNullException(nameof (createFunc));
       mMaxSize = maxSize;
       mActionOnGet = actionOnGet;
       mActionOnRelease = actionOnRelease;
@@ -65,10 +64,12 @@ namespace Script.MVC.Module.Frame.ObjectPool
     public void Release(T element)
     {
       if (MCollectionCheck && MStack.Count > 0 && MStack.Contains(element))
-        throw new InvalidOperationException("Trying to release an object that has already been released to the pool.");
-      Action<T> actionOnRelease = this.mActionOnRelease;
-      if (actionOnRelease != null)
-        actionOnRelease(element);
+      {
+        throw new InvalidOperationException("试图释放一个已经被释放到池中的对象");
+      }
+        
+      Action<T> actionOnRelease = mActionOnRelease;
+      if (actionOnRelease != null && element!=null) actionOnRelease(element);
       if (CountInactive < mMaxSize)
       {
         MStack.Push(element);
@@ -76,8 +77,7 @@ namespace Script.MVC.Module.Frame.ObjectPool
       else
       {
         Action<T> actionOnDestroy = mActionOnDestroy;
-        if (actionOnDestroy != null)
-          actionOnDestroy(element);
+        if (actionOnDestroy != null && element!=null) actionOnDestroy(element);
       }
     }
 
@@ -91,7 +91,7 @@ namespace Script.MVC.Module.Frame.ObjectPool
       MStack.Clear();
       CountAll = 0;
     }
-
+    
     public void Dispose() => Clear();
   }
 }

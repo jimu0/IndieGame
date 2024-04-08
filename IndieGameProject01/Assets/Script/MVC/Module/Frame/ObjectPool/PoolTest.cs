@@ -5,6 +5,7 @@ namespace Script.MVC.Module.Frame.ObjectPool
     public class PoolTest : MonoBehaviour
     {
         private ObjectPool<GameObject> pool;
+        public GameObject obj;
         void Start()
         {
             pool = new ObjectPool<GameObject>(OnCreate, OnGet, OnRelease, OnDestory,
@@ -16,14 +17,17 @@ namespace Script.MVC.Module.Frame.ObjectPool
         }
         void OnGet(GameObject gameObj)
         {
+            gameObj.SetActive(true);
             Debug.Log("OnGet");
         }
         void OnRelease(GameObject gameObj)
         {
+            gameObj.SetActive(false);
             Debug.Log("OnRelease");
         }
         void OnDestory(GameObject gameObj)
         {
+            gameObj.SetActive(false);
             Debug.Log("OnDestroy");
         }
         void Update()
@@ -31,6 +35,11 @@ namespace Script.MVC.Module.Frame.ObjectPool
             if (Input.GetMouseButtonDown(0))
             {
                 pool.Get();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                pool.Release(obj);
             }
         }
     }

@@ -223,6 +223,86 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &858043286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4318324233082981165, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: childObj
+      value: 
+      objectReference: {fileID: 4472597843866277147, guid: 1f55ab6c59934944fb71800a99eb74b6,
+        type: 3}
+    - target: {fileID: 374646859825684946, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameOfList
+      objectReference: {fileID: 0}
+    - target: {fileID: 374646859825684946, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.7221951
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5468879
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.6745434
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13dae02a4d7379f42928e560b35ef4a2, type: 3}
 --- !u!1001 &1213381579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362,7 +442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u79FB\u52A8-AD\n\u8DF3\u8DC3-J\n\u67B6\u52BF-WS"
+  m_Text: "\u79FB\u52A8-AD\n\u8DF3\u8DC3-J\n\u67B6\u52BF-WS\n-----------------\n\u968F\u673A\u751F\u6210-R\n\u751F\u547D\u6F14\u5316-\u9F20\u6807\u53F3\u952E"
 --- !u!222 &1359135243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -382,6 +462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BP_BasicTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317895926683368474, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1317895926683368476, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
         type: 3}
@@ -586,6 +671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BP_BasicTerrain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317895926683368474, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1317895926683368476, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
         type: 3}
