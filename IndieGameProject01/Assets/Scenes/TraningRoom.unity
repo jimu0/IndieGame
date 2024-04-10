@@ -223,86 +223,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &858043286
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -4318324233082981165, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: childObj
-      value: 
-      objectReference: {fileID: 4472597843866277147, guid: 1f55ab6c59934944fb71800a99eb74b6,
-        type: 3}
-    - target: {fileID: 374646859825684946, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_Name
-      value: GameOfList
-      objectReference: {fileID: 0}
-    - target: {fileID: 374646859825684946, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.7221951
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5468879
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.6745434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725524748752831135, guid: 13dae02a4d7379f42928e560b35ef4a2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 13dae02a4d7379f42928e560b35ef4a2, type: 3}
 --- !u!1001 &1213381579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,11 +560,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b099d98cad16f1c4c8b4577d6f5eaba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicTerrain: {fileID: 1317895926683368474, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
+  mainCamera: {fileID: 64154160127184599, guid: b70d1778d1aead540883b3b485762727,
     type: 3}
-  PlayerUnit: {fileID: 7172609226625809594, guid: a88e19a4e4762c349b68547925320c63,
+  basicTerrain: {fileID: 1317895926683368474, guid: 74dcb4768bf30234fb0eaa41aaa328d1,
     type: 3}
-  EnemyUnit: {fileID: 7172609226625809594, guid: 1d72fe6aa15e73346a53b8405f05f412,
+  playerUnit: {fileID: 7172609226625809594, guid: a88e19a4e4762c349b68547925320c63,
+    type: 3}
+  enemyUnit: {fileID: 7172609226625809594, guid: 1d72fe6aa15e73346a53b8405f05f412,
     type: 3}
 --- !u!4 &1992917662
 Transform:

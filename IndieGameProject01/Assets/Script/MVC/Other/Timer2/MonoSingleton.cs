@@ -15,7 +15,7 @@ namespace Script.MVC.Other.Timer2
                 Type _type = typeof(T);
                 if (_destroyed)
                 {
-                    Debug.LogWarningFormat("[Singleton]【{0}】已被标记为销毁，返 Null！", _type.Name);
+                    Debug.LogWarningFormat("[Singleton]??{0}???????????????? Null??", _type.Name);
                     return (T)((object)null);
                 }
                 lock (_lock)
@@ -25,7 +25,7 @@ namespace Script.MVC.Other.Timer2
                         _instance = (T)FindObjectOfType(_type);
                         if (FindObjectsOfType(_type).Length > 1)
                         {
-                            Debug.LogErrorFormat("[Singleton]类型【{0}】存在多个实例.", _type.Name);
+                            Debug.LogErrorFormat("[Singleton]?????{0}???????????.", _type.Name);
                             return _instance;
                         }
                         if (_instance == null)
@@ -34,7 +34,7 @@ namespace Script.MVC.Other.Timer2
                             AutoSingletonAttribute autoAttribute = (customAttributes.Length > 0) ? (AutoSingletonAttribute)customAttributes[0] : null;
                             if (null == autoAttribute || !autoAttribute.autoCreate)
                             {
-                                Debug.LogWarningFormat("[Singleton]欲访问单例【{0}】不存在且设置了非自动创建~", _type.Name);
+                                Debug.LogWarningFormat("[Singleton]???????????{0}????????????????????????~", _type.Name);
                                 return (T)((object)null);
                             }
                             GameObject go = null;
@@ -52,13 +52,13 @@ namespace Script.MVC.Other.Timer2
                                 }
                                 else
                                 {
-                                    Debug.LogErrorFormat("[Singleton]类型【{0}】ResPath设置了错误的路径【{1}】", _type.Name, autoAttribute.resPath);
+                                    Debug.LogErrorFormat("[Singleton]?????{0}??ResPath??????????·????{1}??", _type.Name, autoAttribute.resPath);
                                     return (T)((object)null);
                                 }
                                 _instance = go.GetComponent<T>();
                                 if (null == _instance)
                                 {
-                                    Debug.LogErrorFormat("[Singleton]指定预制体未挂载该脚本【{0}】，ResPath【{1}】", _type.Name, autoAttribute.resPath);
+                                    Debug.LogErrorFormat("[Singleton]????????δ?????????{0}????ResPath??{1}??", _type.Name, autoAttribute.resPath);
                                 }
                             }
                         }
@@ -72,7 +72,7 @@ namespace Script.MVC.Other.Timer2
         {
             if (_instance != null && _instance.gameObject != gameObject)
             {
-                Debug.Log("创造了新的克隆体！");
+                Debug.Log("????????????壡");
                 if (Application.isPlaying)
                 {
                     GameObject.Destroy(gameObject);
@@ -85,7 +85,7 @@ namespace Script.MVC.Other.Timer2
             else
             {
                 _instance = GetComponent<T>();
-                if (!transform.parent) //Unity 只允许最最根节点的 游戏对象不销毁加载。
+                if (!transform.parent) //Unity ?????????????? ???????????????
                 {
                     DontDestroyOnLoad(gameObject);
                 }
@@ -104,7 +104,7 @@ namespace Script.MVC.Other.Timer2
         }
 
         /// <summary>
-        /// 清除 _destroyed 锁
+        /// ??? _destroyed ??
         /// </summary>
         public static void ClearDestroy()
         {
@@ -114,10 +114,10 @@ namespace Script.MVC.Other.Timer2
 
         private static bool _destroyed = false;
         /// <summary>
-        /// 当播放停止时，Unity 会以随机顺序销毁对象
-        /// 若单例 gameObject 先于其他对象销毁，不排除这个单例再次被调用的可能性。
-        /// 故而在编辑器模式下，即便播放停止了，也可能会生成一个 gameObject 对象残留在编辑器场景中。
-        /// 所以，此方法中加把锁，避免不必要的单例调用
+        /// ???????????Unity ?????????????????
+        /// ?????? gameObject ???????????????????????????????α????????????
+        /// ????????????????????????????????????? gameObject ?????????????????С?
+        /// ???????????м??????????????????????
         /// </summary>
         public void OnDestroy()
         {
@@ -128,7 +128,7 @@ namespace Script.MVC.Other.Timer2
             }
         }
 
-        /// <summary>Awake 初始化完成之后 </summary>
+        /// <summary>Awake ??????????? </summary>
         public virtual void OnInit()
         {
             Debug.Log("OnInit");
@@ -139,8 +139,8 @@ namespace Script.MVC.Other.Timer2
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class AutoSingletonAttribute : Attribute
     {
-        public bool autoCreate; //是否自动创建单例
-        public string resPath;  //从指定的预制体路径生成单例
+        public bool autoCreate; //??????????????
+        public string resPath;  //????????????·?????????
 
         public AutoSingletonAttribute(bool _autoCreate, string _resPath = "")
         {

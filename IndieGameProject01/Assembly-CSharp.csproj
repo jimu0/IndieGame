@@ -71,7 +71,7 @@
      <Compile Include="Assets\Script\MVC\Module\Character\OpponentUnit.cs" />
      <Compile Include="Assets\Script\MVC\Module\Frame\ObjectPool\PooledObject.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Script\MVC\Module\Frame\Initialization.cs" />
+     <Compile Include="Assets\Script\MVC\Module\Frame\GameplayInit\GameplayInit.cs" />
      <Compile Include="Assets\Script\MVC\Module\Class\Pawn.cs" />
      <Compile Include="Assets\Art\Map\PlanePos.cs" />
      <Compile Include="Assets\Script\MVC\Other\Timer2\Timer.cs" />
@@ -756,6 +756,12 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>E:\IndieGame\IndieGame01\IndieGameProject01\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="com.unity.cinemachine.editor">
+     <HintPath>E:\IndieGame\IndieGame01\IndieGameProject01\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Cinemachine">
+     <HintPath>E:\IndieGame\IndieGame01\IndieGameProject01\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

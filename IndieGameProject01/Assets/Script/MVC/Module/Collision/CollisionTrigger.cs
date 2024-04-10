@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using Script.MVC.Module.Class;
-using Script.MVC.Module.Frame;
+using Script.MVC.Module.Frame.GameplayInit;
 using UnityEngine;
 
 public class CollisionTrigger : MonoBehaviour
@@ -41,7 +40,7 @@ public class CollisionTrigger : MonoBehaviour
         if (collision.gameObject.tag != owner.gameObject.tag && collision.gameObject.layer == 9)
         {
             //collision.gameObject.GetComponent<Gladiatus>().Be_Hit(owner, 1);
-            Initialization.Instance.Dic_Gladiatus[collision.gameObject].Be_Hit(owner, 1);
+            GameplayInit.Instance.DicPawns[collision.gameObject].Be_Hit(owner, 1);
             Col_OFF();
         }
         
