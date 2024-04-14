@@ -1,7 +1,6 @@
 using System.Collections;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
-
 namespace Script.MVC.Module.Class
 {
     public class Gladiatus : Character
@@ -121,6 +120,7 @@ namespace Script.MVC.Module.Class
         public bool TargetLocked = false;//目标锁定状态
 
         public float force = 5; //跳跃高度
+        //private bool isGrounded = false;//是否着陆
 
         private void Awake()
         {
@@ -139,6 +139,7 @@ namespace Script.MVC.Module.Class
 
         void Update()
         {
+            //Land();
             //_Tsf_ams.localPosition = _ams_pos;
             //if (Col_AttackTrigger) { }
         }
@@ -410,10 +411,46 @@ namespace Script.MVC.Module.Class
             Debug.Log(this.name+"死亡");
         }
 
+        
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        void OnTriggerEnter2D(Collider2D other)
         {
+            // 如果触发到的碰撞器是地面的碰撞器
+            if (other.CompareTag("Ground"))
+            {
+                isGround = true;
+                Debug.Log("OnTriggerExit2D:Grounded");
+            }
+        }
 
+        void OnTriggerExit2D(Collider2D other)
+        {
+            // 如果离开了地面的碰撞器
+            if (other.CompareTag("Ground"))
+            {
+                isGround = false;
+                Debug.Log("OnTriggerExit2D:Floating");
+            }
+        }
+
+        public LayerMask groundLayer; // 将1左移7位，表示只检测第7图层
+        public void Land()
+        {
+            Vector2 pos = Vector2.down;
+            pos.x = transform.position.x;
+            pos.y = transform.position.y;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.down, 0.6f);
+            isGround = false;
+            foreach (var hit in hits)
+            {
+                if (hit.collider != null && hit.collider.gameObject.layer == 6)
+                {
+                    isGround = true; // 标记碰撞到Layer 6
+                    break; // 如果已找到Layer 6的物体，无需进一步检查
+                }
+            }
+            Color rayColor = isGround ? Color.red : Color.green;
+            Debug.DrawRay(pos, Vector2.down * 0.6f, rayColor);
         }
     }
 }

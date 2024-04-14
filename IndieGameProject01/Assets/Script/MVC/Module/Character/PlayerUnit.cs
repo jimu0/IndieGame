@@ -29,7 +29,8 @@ namespace Script.MVC.Module.Character
         void Update()
         {
             _Tsf_ams.localPosition = _ams_pos;
-            //landing = OnTriggerStay2D();
+            //landing = 
+            Land();
         }
     
 
@@ -88,7 +89,7 @@ namespace Script.MVC.Module.Character
 
         public void Jump() 
         {
-            //if (!isGround) { return; }
+            if (!isGround) { return; }
             ReadyJump(rig);
         }
 
