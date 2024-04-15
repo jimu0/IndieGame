@@ -133,7 +133,7 @@ namespace Script.MVC.Other.Timer2
         {
             Debug.Log("OnInit");
         }
-
+        
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]

@@ -76,8 +76,7 @@
      <Compile Include="Assets\Art\Map\PlanePos.cs" />
      <Compile Include="Assets\Script\MVC\Other\Timer2\Timer.cs" />
      <Compile Include="Assets\Script\MVC\Module\Frame\GameMode.cs" />
-     <Compile Include="Assets\Script\MVC\Controller\PawnController\PlayerController_2D.cs" />
-     <Compile Include="Assets\Script\MVC\View\SetPlayerCamLook.cs" />
+     <Compile Include="Assets\Script\MVC\Controller\PawnController\PlayerController2D.cs" />
      <Compile Include="Assets\Script\MVC\Module\Physics\Phys.cs" />
      <Compile Include="Assets\Script\MVC\Module\Frame\ObjectPool\PoolTest.cs" />
      <Compile Include="Assets\Art\Map\worldPos2shaderUV.cs" />

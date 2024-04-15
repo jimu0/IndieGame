@@ -1,4 +1,5 @@
 using System.Collections;
+using Script.MVC.Module.Collision;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
 namespace Script.MVC.Module.Class
@@ -76,7 +77,7 @@ namespace Script.MVC.Module.Class
         /// <summary>
         /// ¹¥ËÙ
         /// </summary>
-        public float attackSpeed = 0.2f;
+        public float attackSpeed = 0.1f;
         /// <summary>
         /// ÒÆËÙ
         /// </summary>
@@ -196,16 +197,17 @@ namespace Script.MVC.Module.Class
             timer_AttackForward = Timer.Start(attackSpeed, (float timeUpdata) =>
                 {
                     Move_SpeedAttenuation = 1;
-                    _ams_pos.x = 1.4f * (timeUpdata / attackSpeed);
+                    _ams_pos.x = 4f * (timeUpdata / attackSpeed);
                     timer_SquatUp.Pause(); timer_Squat.Pause(); timer_SquatDoun.Pause();
                 },
                 () =>
                 {
-                    TriggerAttack(0.06f);
-                    timer_AttackBack.ReStart(attackSpeed);
+                    TriggerAttack(attackSpeed);
+                    timer_AttackBack.ReStart(attackSpeed/10);
                 },
                 0.01f);// Debug.Log("¹¥»÷£º´¥·¢"); 
-
+            
+            
 
         }
         /// <summary>
@@ -357,7 +359,7 @@ namespace Script.MVC.Module.Class
         private void TriggerAttack(float time) 
         {
             Attack_Trigger = true;
-            _CollisionTrigger.Col_ON(0.7f,0,1.5f,0.7f);
+            _CollisionTrigger.Col_ON(2.1f*orient,0,4.2f,0.8f);
             StartCoroutine(CancelAttack(time));
         }
         /// <summary>
@@ -452,5 +454,8 @@ namespace Script.MVC.Module.Class
             Color rayColor = isGround ? Color.red : Color.green;
             Debug.DrawRay(pos, Vector2.down * 0.6f, rayColor);
         }
+        
+        
+
     }
 }
