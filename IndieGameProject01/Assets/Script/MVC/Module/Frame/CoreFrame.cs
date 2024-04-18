@@ -12,7 +12,7 @@ namespace Script.MVC.Module.Frame
         public List<Vector2Int> KMK_View = new List<Vector2Int>();//????
         private List<Vector2Int> KMK_ViewN = new List<Vector2Int>();//??????
         private List<Vector2Int> KMK_ViewO = new List<Vector2Int>();//?????
-        public Vector2Int KMK_Pos = new Vector2Int(0,0);//???????¦Ë??
+        public Vector2Int KMK_Pos = new Vector2Int(0,0);//???????????
         private Vector2Int KMK_PosO;
         private Vector2Int KMK_v;
         public static bool KMK_update = false;
@@ -52,7 +52,7 @@ namespace Script.MVC.Module.Frame
         /// <summary>
         /// ???????
         /// </summary>
-        /// <param name="pos">???¦Ë??</param>
+        /// <param name="pos">???????</param>
         public void GetKMK_View(Vector3Int pos)
         {
             if (KMK_Pos.x != pos.x) { KMK_Pos.x = pos.x; }
@@ -92,7 +92,7 @@ namespace Script.MVC.Module.Frame
             //KMK_ViewN = FLb.GetRilesRegion_Circle(KMK_Pos, KMK_SizeInt, KMK_View, KMK_v);
             KMK_ViewO.Clear();
             KMK_ViewO.AddRange(KMK_View);
-            KMK_ViewN.Clear();//??????????üv???
+            KMK_ViewN.Clear();//???????????v???
             Vector2Int pos = new Vector2Int();
             for (int y = 0; y < KMK_SizeInt*2+1; y++)
             {

@@ -1,4 +1,5 @@
 using System;
+using Script.MVC.Controller.PawnController;
 using Script.MVC.Module.Class;
 
 namespace Script.MVC.Module.Frame

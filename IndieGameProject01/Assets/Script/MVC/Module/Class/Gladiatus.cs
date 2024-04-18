@@ -1,5 +1,6 @@
 using System.Collections;
 using Script.MVC.Module.Collision;
+using Script.MVC.Module.Frame.ObjectPool;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
 namespace Script.MVC.Module.Class
@@ -117,12 +118,13 @@ namespace Script.MVC.Module.Class
         private int orient = 1;//当前朝向
         private int orient_Preset = 1;//当前朝向预设值
         private Vector3 OrientValue = new Vector3(1,1,1);//朝向值
-        private bool OrientSwitch = false;//允许转向开关
+        public bool OrientSwitch = false;//允许转向开关
         public bool TargetLocked = false;//目标锁定状态
 
         public float force = 5; //跳跃高度
         //private bool isGrounded = false;//是否着陆
-
+        
+        
         private void Awake()
         {
             //_Tsf_ams = _Obj_ams.transform;
@@ -137,6 +139,11 @@ namespace Script.MVC.Module.Class
             //ConstructionTimer();
         
         }
+
+
+
+
+        
 
         void Update()
         {
@@ -291,13 +298,13 @@ namespace Script.MVC.Module.Class
         /// <summary>
         /// 准备跳跃
         /// </summary>
-        public void ReadyJump(Rigidbody2D rig) 
+        public void ReadyJump(Rigidbody2D rig, float jumpForce) 
         {
             //if (float.Parse(string.Format("{0:F1}", transform.position.y)) > 0.5f) return;
             if (behavior == Behavior.Stand) 
             {
                 //Debug.Log("jump!");
-                rig.velocity += Vector2.up * force;
+                rig.velocity += Vector2.up * (force + jumpForce);
             }
         }
 
@@ -455,7 +462,14 @@ namespace Script.MVC.Module.Class
             Debug.DrawRay(pos, Vector2.down * 0.6f, rayColor);
         }
         
-        
+        public void Fire(Timer fireTime,bool sticking,Rigidbody2D fireBulletRig)
+        {
+            //bulletObj = bulletPool.Get();
+            //bulletBox = fireBulletBox;
+            //bulletRig = fireBulletRig;
+            
+            fireTime.ReStart();
+        }
 
     }
 }

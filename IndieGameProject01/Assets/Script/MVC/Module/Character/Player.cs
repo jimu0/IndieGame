@@ -1,3 +1,5 @@
+using Script.MVC.Controller.PawnController;
+
 namespace Script.MVC.Module.Character
 {
     public class Player : Class.Character

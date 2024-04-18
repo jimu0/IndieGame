@@ -51,9 +51,17 @@ namespace Script.MVC.Controller.PawnController
 
             if (Input.GetKeyDown(KeyCode.J)) 
             {
+                playerUnit.JumpD();
+            }
+            if (Input.GetKey(KeyCode.J)) 
+            {
                 playerUnit.Jump();
             }
-
+            if (Input.GetKeyUp(KeyCode.J)) 
+            {
+                playerUnit.JumpU();
+            }
+            
             if (Input.GetKeyDown(KeyCode.K))
             {
                 playerUnit.Flash();

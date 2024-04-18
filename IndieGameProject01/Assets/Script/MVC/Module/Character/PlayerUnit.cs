@@ -5,15 +5,18 @@ using UnityEngine;
 
 namespace Script.MVC.Module.Character
 {
+    
     public class PlayerUnit : Gladiatus,I_PlayerUnit
     {
 
         private Rigidbody2D rig;
-        private Timer timer_fly;
+        private Timer timer_Jump;
         private Vector2 flyHw = Vector2.zero;
         public float flySpeed = 5f; // 推进器推力大小
-        
+        private float jumpForce;
+        private bool isJumpD;
         private bool isFlying;
+        
         private void Awake()
         {
             _Tsf_ams = _Obj_ams.transform;
@@ -28,7 +31,10 @@ namespace Script.MVC.Module.Character
         {
             rig = GetComponent<Rigidbody2D>();
             ConstructionTimer();
-            timer_fly = Timer.Start(2f, (float timeUpdata) => {}, () => { isFlying = false; }, 0.01f);// 飞行时间
+            // 跳跃蓄力时间
+            timer_Jump = Timer.Start(1f, (float timeUpdata) => { jumpForce = timeUpdata * 6f;
+            }, () => {}, 0.01f);
+            
         }
 
         // Update is called once per frame
@@ -37,7 +43,7 @@ namespace Script.MVC.Module.Character
             _Tsf_ams.localPosition = _ams_pos;
             //landing = 
             Land();
-            flying();
+            //flying();
         }
     
 
@@ -60,7 +66,16 @@ namespace Script.MVC.Module.Character
             }
             else
             {
-                transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation)); //����
+                if (jumpForce > 0)
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f))); //����
+
+                }
+                else
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation)); //����
+                }
+
             }
 
             SetOrient(x, TargetLocked);
@@ -99,15 +114,34 @@ namespace Script.MVC.Module.Character
             //Debug.Log("闪现");
         }
 
-        public void Jump() 
+        public void JumpD()
         {
-            if (!isGround) { return; }
-            ReadyJump(rig);
+            isJumpD = true;
+            if (isGround)
+            {
+                timer_Jump.ReStart();
+            }
+        }
+        public void Jump()
+        {
+            if (isJumpD && isGround)
+            {
+                isJumpD = false;
+                timer_Jump.ReStart();
+            }
+        }
+        public void JumpU()
+        {
+            isJumpD = false;
+            timer_Jump.Cancel();
+            if (isGround) ReadyJump(rig, jumpForce);
+            jumpForce = 0;
+            
         }
 
         public void Skill1(bool kd)
         {
-            Debug.Log(kd);
+            //handgun
         }
 
         public void Skill2()
@@ -123,7 +157,9 @@ namespace Script.MVC.Module.Character
             //Debug.Log("飞行");//forceMagnitude
             isFlying = true; 
             rig.velocity = Vector2.zero;
-            timer_fly.ReStart(0.4f);
+            //timer_fly.ReStart(0.4f);
+            Vector2 thrustDirection = new Vector2(1, 1); // 推力方向
+            rig.AddForce(thrustDirection.normalized * 20, ForceMode2D.Impulse);
         }
 
         public void Skill4()
@@ -141,11 +177,7 @@ namespace Script.MVC.Module.Character
         {
             isGround = false;
         }
-
-        private void Fire()
-        {
-            //CollisionTrigger.print();
-        }
+        
         
         
         IEnumerator ApplyForce()
@@ -162,14 +194,23 @@ namespace Script.MVC.Module.Character
             isFlying = false;
         }
 
-        void flying()
-        {
-            if (isFlying)
-            {
-                // 根据方向键输入来控制飞行方向
-                Vector2 movement = new Vector2(flyHw.x, flyHw.y).normalized * flySpeed;
-                rig.velocity = movement;
-            }
-        }
+        // void flying()
+        // {
+        //     if (isFlying)
+        //     {
+        //         if (flyHw != Vector2.zero)
+        //         {
+        //             // 根据方向键输入来控制飞行方向
+        //             Vector2 movement = new Vector2(flyHw.x, flyHw.y).normalized * flySpeed;
+        //             rig.velocity = movement;
+        //         }
+        //         else
+        //         {
+        //             rig.velocity = Vector2.zero;
+        //         }
+        //     }
+        // }
+
+
     }
 }

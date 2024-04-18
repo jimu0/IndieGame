@@ -65,6 +65,7 @@ namespace Script.MVC.Module.Frame.ObjectPool
     {
       if (MCollectionCheck && MStack.Count > 0 && MStack.Contains(element))
       {
+        //return;
         throw new InvalidOperationException("试图释放一个已经被释放到池中的对象");
       }
         

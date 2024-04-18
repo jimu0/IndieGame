@@ -37,8 +37,9 @@ public interface I_PlayerUnit
     /// <summary>
     /// 跳跃
     /// </summary>
+    void JumpD();
     void Jump();
-
+    void JumpU();
     /// <summary>
     /// 技能1
     /// </summary>
