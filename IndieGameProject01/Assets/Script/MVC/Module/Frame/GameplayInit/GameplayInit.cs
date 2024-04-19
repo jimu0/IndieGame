@@ -17,7 +17,7 @@ namespace Script.MVC.Module.Frame.GameplayInit
         public GameObject playerUnit;
         public GameObject enemyUnit;
         private readonly GameObject[] gameUnit = new GameObject[16];
-        public readonly Dictionary<GameObject, Gladiatus> DicPawns = new Dictionary<GameObject, Gladiatus>();
+        public readonly Dictionary<GameObject, Biota> DicPawns = new Dictionary<GameObject, Biota>();
         private void Awake()
         {
             instance = gameObject.GetComponent<GameplayInit>();
@@ -42,7 +42,7 @@ namespace Script.MVC.Module.Frame.GameplayInit
                 playerUnitTsf.position = vector;
                 gameUnit[i]= Instantiate(gameUnit[i]);
                 gameUnit[i].transform.position = playerUnitTsf.position;
-                DicPawns.Add(gameUnit[i], gameUnit[i].GetComponent<Gladiatus>());
+                DicPawns.Add(gameUnit[i], gameUnit[i].GetComponent<Biota>());
             }
 
             if (mainCamera)

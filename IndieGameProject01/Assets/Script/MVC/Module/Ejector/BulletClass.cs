@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Script.MVC.Module.Class;
+using Script.MVC.Module.Collision;
 using UnityEngine;
 using Timer = Script.MVC.Other.Timer2.Timer;
 
@@ -9,19 +11,23 @@ namespace Script.MVC.Module.Ejector
     {
         //public GameObject obj;
         public Gun parent;
+        public Biota owner;
         public BoxCollider2D boxCollider;
         public Rigidbody2D rigidbody;
+        public CollisionTrigger collisionTrigger;
         public float lifetime = 2;
         private Timer lifeTimer;
         //public BulletClass bulletClass;
         public Gun.Bullet Bullet;// = new(null,null);
         public bool released;//如果已经释放，则不执行后续释放操作
+        public bool lockOrient;
         private void Awake()
         {
             //obj = gameObject;
-            boxCollider = gameObject.GetComponent<BoxCollider2D>();
-            rigidbody = gameObject.GetComponent<Rigidbody2D>();
-            //bulletClass = this;
+            if(!boxCollider) boxCollider = gameObject.GetComponent<BoxCollider2D>();
+            if(!rigidbody) rigidbody = gameObject.GetComponent<Rigidbody2D>();
+            if(!collisionTrigger) collisionTrigger = gameObject.GetComponent<CollisionTrigger>();
+
             lifeTimer = Timer.Start(lifetime, (float _) => {}, ReleaseBullet, 0.01f);
 
         }
@@ -30,7 +36,22 @@ namespace Script.MVC.Module.Ejector
         {
             //released = false;
         }
-        
+
+        private void Update()
+        {
+            if (lockOrient)
+            {
+                // 获取盒子的速度向量
+                Vector3 velocity = rigidbody.velocity;
+                // 如果速度向量的长度大于最小速度阈值，则认为盒子正在移动
+                if (velocity.magnitude > 0.1f)
+                {
+                    // 将盒子的朝向设置为速度向量的方向
+                    gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward,velocity);;
+                }
+            }
+        }
+
         void OnEnable()
         {
             lifeTimer.ReStart();

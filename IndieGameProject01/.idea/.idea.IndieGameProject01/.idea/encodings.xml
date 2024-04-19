@@ -6,8 +6,9 @@
     <file url="file://$PROJECT_DIR$/Assets/Export/Class/Gladiatus.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Export/CollisionTrigger.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Export/Frame/CoreFrame.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Controller/Interface/I_OpponentUnit.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Controller/PawnController/PlayerController.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Class/Gladiatus.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Class/Biota.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Frame/CoreFrame.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Module/Physics/OnGroundSensor2D.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Script/MVC/Other/Interface/I_OpponentUnit.cs" charset="GBK" />

@@ -1,3 +1,4 @@
+using Script.MVC.Module.Class;
 using UnityEngine;
 
 namespace Script.MVC.Controller.PawnController
@@ -5,9 +6,11 @@ namespace Script.MVC.Controller.PawnController
     public class PlayerController2D : MonoBehaviour
     {
         private I_PlayerUnit playerUnit;
+        public Biota owner;
         private float horizontal;//x
         private float vertical;//y
         //public Pawn BP_Player;
+        private bool cancelTimerLock = true;//判断角色死亡后，批准执行的锁
         private void Awake()
         {
             playerUnit = GetComponent<I_PlayerUnit>();
@@ -16,10 +19,22 @@ namespace Script.MVC.Controller.PawnController
         // {
         //
         // }
-
-        // Update is called once per frame
+        
+        void OnEnable()
+        {
+            cancelTimerLock = true;
+        }
         void Update()
         {
+            if (owner.behavior == Biota.Behavior.Die)
+            {
+                if (cancelTimerLock)
+                {
+                    cancelTimerLock = false;
+                }
+                return;//角色死了
+            }
+            
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
             if (horizontal != 0)

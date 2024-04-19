@@ -1,4 +1,4 @@
-namespace Script.MVC.Other.Interface
+namespace Script.MVC.Controller.Interface
 {
     public interface I_OpponentUnit
     {

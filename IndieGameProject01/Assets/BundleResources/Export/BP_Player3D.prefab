@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2441295732378023088}
   - component: {fileID: 689898753161766347}
   - component: {fileID: -8016838350859699295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BP_Player3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,9 @@ MonoBehaviour:
   PosInt: {x: 0, y: 0, z: 0}
   GameMode: {fileID: 0}
   isGround: 0
-  BP_PlayerController: {fileID: 5739139285907800099, guid: 0db7a443c93fd0641b2a393bc8a80d1b, type: 3}
+  landing: 0
+  BP_PlayerController: {fileID: 5739139285907800099, guid: 0db7a443c93fd0641b2a393bc8a80d1b,
+    type: 3}
 --- !u!114 &-8301184135587201741
 MonoBehaviour:
   m_ObjectHideFlags: 0

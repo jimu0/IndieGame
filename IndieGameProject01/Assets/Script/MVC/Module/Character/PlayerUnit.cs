@@ -1,12 +1,13 @@
 using System.Collections;
 using Script.MVC.Module.Class;
+using Script.MVC.Module.Ejector;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
 
 namespace Script.MVC.Module.Character
 {
     
-    public class PlayerUnit : Gladiatus,I_PlayerUnit
+    public class PlayerUnit : Biota,I_PlayerUnit
     {
 
         private Rigidbody2D rig;
@@ -16,20 +17,25 @@ namespace Script.MVC.Module.Character
         private float jumpForce;
         private bool isJumpD;
         private bool isFlying;
-        
+        public float ux;
         private void Awake()
         {
-            _Tsf_ams = _Obj_ams.transform;
-            _ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
+            
+            rig = GetComponent<Rigidbody2D>();
+            gun = GetComponent<Gun>();
+            gun.owner = this;
+            //_Tsf_ams = _Obj_ams.transform;
+            //_ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
             reactionSpeed = 0.1f;
             attackSpeed = 0.05f;
             //if (behavior == Behavior.stand) { }
+            pos_gunStart = transform.Find("mod/pos_gunStart").gameObject;
+            pos_gunEnd = transform.Find("mod/pos_gunEnd").gameObject;
+
         }
 
-        // Start is called before the first frame update
         void Start()
         {
-            rig = GetComponent<Rigidbody2D>();
             ConstructionTimer();
             // 跳跃蓄力时间
             timer_Jump = Timer.Start(1f, (float timeUpdata) => { jumpForce = timeUpdata * 6f;
@@ -37,10 +43,16 @@ namespace Script.MVC.Module.Character
             
         }
 
-        // Update is called once per frame
         void Update()
         {
-            _Tsf_ams.localPosition = _ams_pos;
+            //_Tsf_ams.localPosition = _ams_pos;
+            Vector3 position = gameObject.transform.position;
+            posGunStart = position;
+            posGunEnd.x = position.x + (orient_Preset * (1 - Mathf.Abs(posGunEnd0))) + (ux * Mathf.Abs(posGunEnd0));
+            posGunEnd.y = position.y + posGunEnd0;
+            pos_gunStart.transform.SetPositionAndRotation(posGunStart,pos_gunStart.transform.rotation);
+            pos_gunEnd.transform.SetPositionAndRotation(posGunEnd,pos_gunEnd.transform.rotation);
+
             //landing = 
             Land();
             //flying();
@@ -50,36 +62,8 @@ namespace Script.MVC.Module.Character
 
         public void Move(float x)
         {
-            if(isFlying) flyHw.x = x;
-            float mSpeed = 4f;
-            //transform.Translate(Vector3.forward * vertical * m_speed * Time.deltaTime);//�� ��
-            if (behavior == Behavior.Attack)
-            {
-                if (isGround)
-                {
-                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f)));//攻击时地面速度减慢
-                }
-                else
-                {
-                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation));//攻击时空中可以移动
-                }
-            }
-            else
-            {
-                if (jumpForce > 0)
-                {
-                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f))); //����
-
-                }
-                else
-                {
-                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation)); //����
-                }
-
-            }
-
-            SetOrient(x, TargetLocked);
-            //Debug.Log(x.ToString());
+            ux = x;
+            Moving(x,jumpForce);
         }
 
         public void Squat(float y)
@@ -133,7 +117,7 @@ namespace Script.MVC.Module.Character
         public void JumpU()
         {
             isJumpD = false;
-            timer_Jump.Cancel();
+            timer_Jump.Pause();
             if (isGround) ReadyJump(rig, jumpForce);
             jumpForce = 0;
             
@@ -180,19 +164,19 @@ namespace Script.MVC.Module.Character
         
         
         
-        IEnumerator ApplyForce()
-        {
-            // 持续 2 秒
-            float duration = 2.0f;
-            float elapsedTime = 0.0f;
-            
-            while (elapsedTime < duration)
-            {
-                // 等待下一帧
-                yield return null;
-            }
-            isFlying = false;
-        }
+        // IEnumerator ApplyForce()
+        // {
+        //     // 持续 2 秒
+        //     float duration = 2.0f;
+        //     float elapsedTime = 0.0f;
+        //     
+        //     while (elapsedTime < duration)
+        //     {
+        //         // 等待下一帧
+        //         yield return null;
+        //     }
+        //     isFlying = false;
+        // }
 
         // void flying()
         // {

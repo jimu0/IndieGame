@@ -1,11 +1,12 @@
 using System.Collections;
 using Script.MVC.Module.Collision;
+using Script.MVC.Module.Ejector;
 using Script.MVC.Module.Frame.ObjectPool;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
 namespace Script.MVC.Module.Class
 {
-    public class Gladiatus : Character
+    public class Biota : Character
     {
         /// <summary>
         /// 行为状态
@@ -96,11 +97,11 @@ namespace Script.MVC.Module.Class
 
         //角斗士当前行为状态
 
-        public GameObject _Obj_ams;//临时：角色架势可视化
-        public Transform _Tsf_ams;//临时模拟手臂的Transform
-        public Vector3 _ams_pos = new Vector3(0.4f, 0, 0);//临时：模拟手臂动作的box默认pos值
-        public SpriteRenderer _ams_SpR;//临时：角色防御可视化组件调用
-        Color DefendForward_color = new Color(255, 255, 255, 1);//临时：角色防御可视化_颜色
+        //public GameObject _Obj_ams;//临时：角色架势可视化
+        //public Transform _Tsf_ams;//临时模拟手臂的Transform
+        //public Vector3 _ams_pos = new Vector3(0.4f, 0, 0);//临时：模拟手臂动作的box默认pos值
+        //public SpriteRenderer _ams_SpR;//临时：角色防御可视化组件调用
+        //Color DefendForward_color = new Color(255, 255, 255, 1);//临时：角色防御可视化_颜色
         public int squatValue = 0;//架势ID
         public bool longPress_Defend = false;//长按防御检测
         private float squatYO;//squatUpdate中的单次判断
@@ -116,15 +117,19 @@ namespace Script.MVC.Module.Class
         public bool Attack_Trigger = false;//是否开启攻击检测
         public float Move_SpeedAttenuation = 1;//移动速度衰减因子
         private int orient = 1;//当前朝向
-        private int orient_Preset = 1;//当前朝向预设值
+        public int orient_Preset = 1;//当前朝向预设值
         private Vector3 OrientValue = new Vector3(1,1,1);//朝向值
         public bool OrientSwitch = false;//允许转向开关
         public bool TargetLocked = false;//目标锁定状态
 
         public float force = 5; //跳跃高度
         //private bool isGrounded = false;//是否着陆
-        
-        
+        public Gun gun;//枪
+        public Vector2 posGunStart = Vector2.zero;
+        public Vector2 posGunEnd = Vector2.one;
+        public float posGunEnd0;
+        public GameObject pos_gunStart;
+        public GameObject pos_gunEnd;
         private void Awake()
         {
             //_Tsf_ams = _Obj_ams.transform;
@@ -137,7 +142,8 @@ namespace Script.MVC.Module.Class
         void Start()
         {
             //ConstructionTimer();
-        
+
+
         }
 
 
@@ -160,29 +166,46 @@ namespace Script.MVC.Module.Class
         /// </summary>
         public void ConstructionTimer()
         {
-            timer_SquatUp = Timer.Start(reactionSpeed, (float timeUpdata) => { _ams_pos.y = 0.3f * (timeUpdata / reactionSpeed); }, () => { squatValue = 1; }, 0.01f);// Debug.Log("架势：抬高"); 
+            timer_SquatUp = Timer.Start(reactionSpeed, (float timeUpdata) =>
+            {
+                //_ams_pos.y = 0.75f * (timeUpdata / reactionSpeed);
+                posGunEnd0 = timeUpdata / reactionSpeed;
+            }, () => { squatValue = 1; }, 0.01f);// Debug.Log("架势：抬高"); 
 
-            timer_SquatDoun = Timer.Start(reactionSpeed, (float timeUpdata) => { _ams_pos.y = -0.3f * (timeUpdata / reactionSpeed); }, () => { squatValue = -1; }, 0.01f);// Debug.Log("架势：压低"); 
+            timer_SquatDoun = Timer.Start(reactionSpeed, (float timeUpdata) =>
+            {
+                //_ams_pos.y = -0.75f * (timeUpdata / reactionSpeed);
+                posGunEnd0 = -(timeUpdata / reactionSpeed);
+            }, () => { squatValue = -1; }, 0.01f);// Debug.Log("架势：压低"); 
 
-            timer_Squat = Timer.Start(reactionSpeed, (float timeUpdata) => { _ams_pos.y = 0.3f * squatValue * ((reactionSpeed - timeUpdata) / reactionSpeed); }, () => { squatValue = 0; }, 0.01f);// Debug.Log("架势：平式"); 
+            timer_Squat = Timer.Start(reactionSpeed, (float timeUpdata) =>
+            {
+                //_ams_pos.y = 0.75f * squatValue * ((reactionSpeed - timeUpdata) / reactionSpeed);
+                posGunEnd0 =  squatValue * ((reactionSpeed-timeUpdata) / reactionSpeed);
+                //Debug.Log($"posGunEnd0:{posGunEnd0}={posGunStart.y}+{squatValue}*(({reactionSpeed}-{timeUpdata})/{reactionSpeed})");
+            }, () =>
+            {
+                squatValue = 0;
+                posGunEnd0 = 0;
+            }, 0.01f);// Debug.Log("架势：平式"); 
 
             timer_DefendForward = Timer.Start(attackSpeed, (float timeUpdata) =>
                 {
-                    DefendForward_color.b = 255 - 255 * (timeUpdata / attackSpeed);
-                    _ams_SpR.color = DefendForward_color;
+                    //DefendForward_color.b = 255 - 255 * (timeUpdata / attackSpeed);
+                    //_ams_SpR.color = DefendForward_color;
                     //timer_SquatUp.Pause(); timer_Squat.Pause(); timer_SquatDoun.Pause();
                 },
                 () =>
                 {
                     if (behavior == Behavior.Defend)
                     {
-                        DefendForward_color.b = 0;
-                        _ams_SpR.color = DefendForward_color;
+                        //DefendForward_color.b = 0;
+                        //_ams_SpR.color = DefendForward_color;
                     }
                     else
                     {
-                        DefendForward_color.b = 255;
-                        _ams_SpR.color = DefendForward_color;
+                        //DefendForward_color.b = 255;
+                        //_ams_SpR.color = DefendForward_color;
                     }
                     //timer_AttackBack.ReStart(attackSpeed);
                 },
@@ -190,7 +213,7 @@ namespace Script.MVC.Module.Class
 
             timer_AttackBack = Timer.Start(attackSpeed, (float timeUpdata) =>
                 {
-                    _ams_pos.x = 0.4f + ((attackSpeed - timeUpdata) / attackSpeed);
+                    //_ams_pos.x = 0.4f + ((attackSpeed - timeUpdata) / attackSpeed);
                     timer_SquatUp.Resume(); timer_Squat.Resume(); timer_SquatDoun.Resume();
                 },
                 () =>
@@ -204,19 +227,54 @@ namespace Script.MVC.Module.Class
             timer_AttackForward = Timer.Start(attackSpeed, (float timeUpdata) =>
                 {
                     Move_SpeedAttenuation = 1;
-                    _ams_pos.x = 4f * (timeUpdata / attackSpeed);
+                    //_ams_pos.x = 4f * (timeUpdata / attackSpeed);
                     timer_SquatUp.Pause(); timer_Squat.Pause(); timer_SquatDoun.Pause();
                 },
                 () =>
                 {
-                    TriggerAttack(attackSpeed);
-                    timer_AttackBack.ReStart(attackSpeed/10);
+                    TriggerAttack(gun, posGunStart, posGunEnd);
+                    timer_AttackBack.ReStart();
                 },
                 0.01f);// Debug.Log("攻击：触发"); 
             
             
-
+            
         }
+        
+        public void Moving(float x, float jumpForce)
+        {
+            //if(isFlying) flyHw.x = x;
+            float mSpeed = 4f;
+            //transform.Translate(Vector3.forward * vertical * m_speed * Time.deltaTime);//?? ??
+            if (behavior == Behavior.Attack)
+            {
+                if (isGround)
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f)));//攻击时地面速度减慢
+                }
+                else
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation));//攻击时空中可以移动
+                }
+            }
+            else
+            {
+                if (jumpForce > 0)
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f))); //????
+
+                }
+                else
+                {
+                    transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation)); //????
+                }
+
+            }
+            
+            SetOrient(x, TargetLocked);
+            //Debug.Log(x.ToString());
+        }
+        
         /// <summary>
         /// 转向设置
         /// </summary>
@@ -224,7 +282,6 @@ namespace Script.MVC.Module.Class
         /// <param name="TargetLocked">目标锁定状态</param>
         public void SetOrient(float i,bool TargetLocked)
         {
-
             if (TargetLocked) 
             {
                 orient_Preset = orient; 
@@ -247,7 +304,11 @@ namespace Script.MVC.Module.Class
                     { orient = 1; OrientValue.x = orient; gameObject.transform.localScale = OrientValue; }
                     else if (i < 0)
                     { orient = -1; OrientValue.x = orient; gameObject.transform.localScale = OrientValue; }
-                    else { orient = 1; OrientValue.x = orient; gameObject.transform.localScale = OrientValue; }
+                    //else { orient = 1; OrientValue.x = orient; gameObject.transform.localScale = OrientValue; }
+
+                    
+                    //GameObject muzzle = gameObject.transform.Find("mod/muzzle").gameObject;
+                    //if(gunMuzzle) gunMuzzle.transform.localScale = OrientValue;
                 }
             }
 
@@ -264,9 +325,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO >= 0.34) { }
                 else
                 {
-                    timer_Squat.Cancel();
-                    timer_SquatDoun.Cancel();
-                    timer_SquatUp.ReStart(reactionSpeed);
+                    timer_Squat.Pause();
+                    timer_SquatDoun.Pause();
+                    timer_SquatUp.ReStart();
                     squatYO = y;
                 }
             }
@@ -275,9 +336,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO <= -0.34) { }
                 else
                 {
-                    timer_SquatUp.Cancel();
-                    timer_Squat.Cancel();
-                    timer_SquatDoun.ReStart(reactionSpeed);
+                    timer_SquatUp.Pause();
+                    timer_Squat.Pause();
+                    timer_SquatDoun.ReStart();
                     squatYO = y;
                 }
             }
@@ -286,9 +347,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO > -0.34 && squatYO < 0.34) { }
                 else
                 {
-                    timer_SquatUp.Cancel();
-                    timer_SquatDoun.Cancel();
-                    timer_Squat.ReStart(reactionSpeed);
+                    timer_SquatUp.Pause();
+                    timer_SquatDoun.Pause();
+                    timer_Squat.ReStart();
                     squatYO = y;
                 }
             }
@@ -314,8 +375,8 @@ namespace Script.MVC.Module.Class
         /// </summary>
         public void ReadyAttack()
         {
-            DefendForward_color.b = 255;
-            _ams_SpR.color = DefendForward_color;
+            //DefendForward_color.b = 255;
+            //_ams_SpR.color = DefendForward_color;
             if (behavior == Behavior.Stand || behavior == Behavior.Defend)
             {
                 OrientSwitch = false;
@@ -351,23 +412,29 @@ namespace Script.MVC.Module.Class
 
             if (behavior == Behavior.Defend)
             {
-                timer_DefendForward.Cancel();
+                timer_DefendForward.Resume();
                 OrientSwitch = true;
                 behavior = Behavior.Stand;
-                DefendForward_color.b = 255;
-                _ams_SpR.color = DefendForward_color;
+                //DefendForward_color.b = 255;
+                //_ams_SpR.color = DefendForward_color;
             }
             //Debug.Log("触发：取消防御");
         }
+
         /// <summary>
         /// 触发攻击开关
         /// </summary>
-        /// <param name="time">触发时长/s</param>
-        private void TriggerAttack(float time) 
+        /// <param name="weapon">武器/Gun</param>
+        /// <param name="weaponStart">武器枪口位置</param>
+        /// <param name="weaponEnd">武器瞄准位置</param>
+        private void TriggerAttack(Gun weapon,Vector2 weaponStart,Vector2 weaponEnd)
         {
+            if (!weapon) return;
             Attack_Trigger = true;
+            weapon.SetGunPos(weaponStart,weaponEnd);
+            weapon.Fire();
             _CollisionTrigger.Col_ON(2.1f*orient,0,4.2f,0.8f);
-            StartCoroutine(CancelAttack(time));
+            StartCoroutine(CancelAttack(0.1f));
         }
         /// <summary>
         /// 通过协程，延迟停止攻击触发
@@ -399,24 +466,25 @@ namespace Script.MVC.Module.Class
         /// <summary>
         /// 受击碰撞检测响应
         /// </summary>
-        /// <param name="Source">伤害来源单位</param>
-        /// <param name="Damage">伤害值</param>
-        public void Be_Hit(GameObject Source,float Damage) 
+        /// <param name="source">伤害来源单位</param>
+        /// <param name="damage">伤害值</param>
+        public void Be_Hit(Biota source,float damage) 
         {
-            if (_HP-Damage <= 0)
+            if (_HP-damage <= 0)
             {
                 _HP = 0;
                 Die();
                 return;
             }
-            _HP -= Damage;
-            Debug.Log("受到来自【"+ Source.name+"】的伤害，剩余生命值【"+_HP.ToString()+"】");
+            _HP -= damage;
+            Debug.Log("受到来自【"+ source.name+"】的伤害，剩余生命值【"+_HP.ToString()+"】");
         }
         /// <summary>
         /// 触发死亡
         /// </summary>
         public void Die()
         {
+            behavior = Behavior.Die;
             Debug.Log(this.name+"死亡");
         }
 
@@ -460,15 +528,6 @@ namespace Script.MVC.Module.Class
             }
             Color rayColor = isGround ? Color.red : Color.green;
             Debug.DrawRay(pos, Vector2.down * 0.6f, rayColor);
-        }
-        
-        public void Fire(Timer fireTime,bool sticking,Rigidbody2D fireBulletRig)
-        {
-            //bulletObj = bulletPool.Get();
-            //bulletBox = fireBulletBox;
-            //bulletRig = fireBulletRig;
-            
-            fireTime.ReStart();
         }
 
     }

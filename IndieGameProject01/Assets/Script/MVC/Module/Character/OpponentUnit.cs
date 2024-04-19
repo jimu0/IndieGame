@@ -1,20 +1,25 @@
+using Script.MVC.Controller.Interface;
 using Script.MVC.Module.Class;
-using Script.MVC.Other.Interface;
+using Script.MVC.Module.Ejector;
 using UnityEngine;
 
 namespace Script.MVC.Module.Character
 {
-    public class OpponentUnit : Gladiatus, I_OpponentUnit
+    public class OpponentUnit : Biota, I_OpponentUnit
     {
-
-
+        private Rigidbody2D rig;
         private void Awake()
         {
-            _Tsf_ams = _Obj_ams.transform;
-            _ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
+            //_Tsf_ams = _Obj_ams.transform;
+            //_ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
+            rig = GetComponent<Rigidbody2D>();
+            gun = GetComponent<Gun>();
+            gun.owner = this;
             reactionSpeed = 0.1f;
             attackSpeed = 0.2f;
             //if (behavior == Behavior.stand) { }
+            pos_gunStart = transform.Find("mod/pos_gunStart").gameObject;
+            pos_gunEnd = transform.Find("mod/pos_gunEnd").gameObject;
         }
 
         // Start is called before the first frame update
@@ -26,7 +31,14 @@ namespace Script.MVC.Module.Character
         // Update is called once per frame
         void Update()
         {
-            _Tsf_ams.localPosition = _ams_pos;
+            //_Tsf_ams.localPosition = _ams_pos;
+            Vector3 position = gameObject.transform.position;
+            posGunStart = position;
+            posGunEnd.x = position.x + orient_Preset;
+            posGunEnd.y = position.y + 1;
+            pos_gunStart.transform.SetPositionAndRotation(posGunStart,pos_gunStart.transform.rotation);
+            pos_gunEnd.transform.SetPositionAndRotation(posGunEnd,pos_gunEnd.transform.rotation);
+
         }
 
 

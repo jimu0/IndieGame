@@ -16,10 +16,10 @@ TagManager:
   - UI
   - ground
   - player
-  - 
-  - 
-  - 
-  - 
+  - bullet
+  - biology
+  - destructible
+  - pos
   - 
   - 
   - 
