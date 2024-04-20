@@ -1,4 +1,3 @@
-using System.Collections;
 using Script.MVC.Module.Class;
 using Script.MVC.Module.Ejector;
 using Script.MVC.Other.Timer2;
@@ -10,13 +9,13 @@ namespace Script.MVC.Module.Character
     public class PlayerUnit : Biota,I_PlayerUnit
     {
 
-        private Rigidbody2D rig;
-        private Timer timer_Jump;
-        private Vector2 flyHw = Vector2.zero;
-        public float flySpeed = 5f; // 推进器推力大小
+        //private Rigidbody2D rig;
+        private Timer timerJump;
+        //private Vector2 flyHw = Vector2.zero;
+        //public float flySpeed = 5f; // 推进器推力大小
         private float jumpForce;
         private bool isJumpD;
-        private bool isFlying;
+        //public bool isFlying;
         public float ux;
         private void Awake()
         {
@@ -34,15 +33,12 @@ namespace Script.MVC.Module.Character
 
         }
 
-        void Start()
-        {
-            ConstructionTimer();
-            // 跳跃蓄力时间
-            timer_Jump = Timer.Start(1f, (float timeUpdata) => { jumpForce = timeUpdata * 6f;
-            }, () => {}, 0.01f);
-            
-        }
-
+        // void Start()
+        // {
+        //
+        //     
+        // }
+        
         void Update()
         {
             //_Tsf_ams.localPosition = _ams_pos;
@@ -58,7 +54,19 @@ namespace Script.MVC.Module.Character
             //flying();
         }
     
-
+        private void TimerReStart_SquatUp()
+        {
+            // 跳跃蓄力时间
+            if (timerJump == null)
+            {
+                timerJump = Timer.Start(1f, (update) => { jumpForce = update * 6f;
+                }, () => {}, 0.01f);
+            }
+            else
+            {
+                timerJump.ReStart();
+            }
+        }
 
         public void Move(float x)
         {
@@ -68,7 +76,7 @@ namespace Script.MVC.Module.Character
 
         public void Squat(float y)
         {
-            if(isFlying) flyHw.y = y;
+            //if(isFlying) flyHw.y = y;
             judgeTheSquat(y);
         }
 
@@ -103,7 +111,7 @@ namespace Script.MVC.Module.Character
             isJumpD = true;
             if (isGround)
             {
-                timer_Jump.ReStart();
+                TimerReStart_SquatUp();
             }
         }
         public void Jump()
@@ -111,13 +119,13 @@ namespace Script.MVC.Module.Character
             if (isJumpD && isGround)
             {
                 isJumpD = false;
-                timer_Jump.ReStart();
+                TimerReStart_SquatUp();
             }
         }
         public void JumpU()
         {
             isJumpD = false;
-            timer_Jump.Pause();
+            timerJump?.Pause();
             if (isGround) ReadyJump(rig, jumpForce);
             jumpForce = 0;
             
@@ -139,7 +147,7 @@ namespace Script.MVC.Module.Character
         public void Skill3()
         {
             //Debug.Log("飞行");//forceMagnitude
-            isFlying = true; 
+            //isFlying = true; 
             rig.velocity = Vector2.zero;
             //timer_fly.ReStart(0.4f);
             Vector2 thrustDirection = new Vector2(1, 1); // 推力方向

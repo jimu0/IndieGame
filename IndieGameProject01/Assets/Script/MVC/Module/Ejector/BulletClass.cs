@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Script.MVC.Module.Class;
 using Script.MVC.Module.Collision;
 using UnityEngine;
@@ -13,7 +11,7 @@ namespace Script.MVC.Module.Ejector
         public Gun parent;
         public Biota owner;
         public BoxCollider2D boxCollider;
-        public Rigidbody2D rigidbody;
+        public new Rigidbody2D rigidbody;
         public CollisionTrigger collisionTrigger;
         public float lifetime = 2;
         private Timer lifeTimer;
@@ -27,15 +25,12 @@ namespace Script.MVC.Module.Ejector
             if(!boxCollider) boxCollider = gameObject.GetComponent<BoxCollider2D>();
             if(!rigidbody) rigidbody = gameObject.GetComponent<Rigidbody2D>();
             if(!collisionTrigger) collisionTrigger = gameObject.GetComponent<CollisionTrigger>();
-
-            lifeTimer = Timer.Start(lifetime, (float _) => {}, ReleaseBullet, 0.01f);
-
+            
         }
 
-        void Start()
-        {
-            //released = false;
-        }
+        // void Start()
+        // {
+        // }
 
         private void Update()
         {
@@ -47,25 +42,37 @@ namespace Script.MVC.Module.Ejector
                 if (velocity.magnitude > 0.1f)
                 {
                     // 将盒子的朝向设置为速度向量的方向
-                    gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward,velocity);;
+                    gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward,velocity);
                 }
+            }
+        }
+
+        private void TimerStart_LifeTimer()
+        {
+            if (lifeTimer == null)
+            {
+                lifeTimer = Timer.Start(lifetime, (_) => {}, ReleaseBullet, 0.01f);
+            }
+            else
+            {
+                lifeTimer.ReStart();
             }
         }
 
         void OnEnable()
         {
-            lifeTimer.ReStart();
+            TimerStart_LifeTimer();
         }
 
         void OnDisable()
         {
-            lifeTimer.Pause();
+            lifeTimer?.Pause();
         }
         void ReleaseBullet()
         {
             // 如果已经释放，则不执行后续释放操作
             //if (released)return;
-            parent.bulletPool.Release(Bullet);
+            parent.BulletPool.Release(Bullet);
         }
         // void OnEnable()
         // {

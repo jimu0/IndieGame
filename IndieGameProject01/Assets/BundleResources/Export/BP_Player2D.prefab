@@ -607,10 +607,10 @@ MonoBehaviour:
   posGunEnd0: 0
   pos_gunStart: {fileID: 0}
   pos_gunEnd: {fileID: 0}
+  rig: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  flySpeed: 5
   ux: 0
 --- !u!114 &7172609226625809592
 MonoBehaviour:
@@ -640,11 +640,10 @@ MonoBehaviour:
   owner: {fileID: 0}
   bulletPrefab: {fileID: 3060367523129224763, guid: e511462eef240de4393c250dfa1f99e7,
     type: 3}
-  loop: 1
-  pierce: 0
+  pierce: 1
   gravitation: 1
   lockOrient: 1
-  fireForce: 6
+  fireForce: 8
 --- !u!1001 &3288054792822359555
 PrefabInstance:
   m_ObjectHideFlags: 0

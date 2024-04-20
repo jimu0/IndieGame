@@ -7,31 +7,23 @@ namespace Script.MVC.Module.Character
 {
     public class OpponentUnit : Biota, I_OpponentUnit
     {
-        private Rigidbody2D rig;
         private void Awake()
         {
-            //_Tsf_ams = _Obj_ams.transform;
-            //_ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
-            rig = GetComponent<Rigidbody2D>();
             gun = GetComponent<Gun>();
             gun.owner = this;
             reactionSpeed = 0.1f;
             attackSpeed = 0.2f;
-            //if (behavior == Behavior.stand) { }
+            
             pos_gunStart = transform.Find("mod/pos_gunStart").gameObject;
             pos_gunEnd = transform.Find("mod/pos_gunEnd").gameObject;
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            ConstructionTimer();
-        }
+        // void Start()
+        // {
+        // }
 
-        // Update is called once per frame
         void Update()
         {
-            //_Tsf_ams.localPosition = _ams_pos;
             Vector3 position = gameObject.transform.position;
             posGunStart = position;
             posGunEnd.x = position.x + orient_Preset;

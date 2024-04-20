@@ -1,7 +1,6 @@
 using System.Collections;
 using Script.MVC.Module.Collision;
 using Script.MVC.Module.Ejector;
-using Script.MVC.Module.Frame.ObjectPool;
 using Script.MVC.Other.Timer2;
 using UnityEngine;
 namespace Script.MVC.Module.Class
@@ -106,7 +105,7 @@ namespace Script.MVC.Module.Class
         public bool longPress_Defend = false;//长按防御检测
         private float squatYO;//squatUpdate中的单次判断
         public Timer timer_SquatUp;//架势抬起前摇时间
-        public Timer timer_SquatDoun;//架势放下前摇时间
+        public Timer timer_SquatDown;//架势放下前摇时间
         public Timer timer_Squat;//架势返回后摇时间
         public Timer timer_AttackForward;//攻击前摇时间
         public Timer timer_AttackBack;//攻击后摇时间
@@ -130,6 +129,7 @@ namespace Script.MVC.Module.Class
         public float posGunEnd0;
         public GameObject pos_gunStart;
         public GameObject pos_gunEnd;
+        public Rigidbody2D rig;
         private void Awake()
         {
             //_Tsf_ams = _Obj_ams.transform;
@@ -158,103 +158,149 @@ namespace Script.MVC.Module.Class
             //if (Col_AttackTrigger) { }
         }
 
-
-
-
-        /// <summary>
-        /// 初始化计时器构造
-        /// </summary>
-        public void ConstructionTimer()
+        private void TimerReStart_SquatUp()
         {
-            timer_SquatUp = Timer.Start(reactionSpeed, (float timeUpdata) =>
+            if (timer_SquatUp == null)
             {
-                //_ams_pos.y = 0.75f * (timeUpdata / reactionSpeed);
-                posGunEnd0 = timeUpdata / reactionSpeed;
-            }, () => { squatValue = 1; }, 0.01f);// Debug.Log("架势：抬高"); 
-
-            timer_SquatDoun = Timer.Start(reactionSpeed, (float timeUpdata) =>
+                timer_SquatUp = Timer.Start(reactionSpeed, (float timeUpdata) =>
+                {
+                    posGunEnd0 = timeUpdata / reactionSpeed;
+                }, () => { squatValue = 1; }, 0.01f);
+            }
+            else
             {
-                //_ams_pos.y = -0.75f * (timeUpdata / reactionSpeed);
-                posGunEnd0 = -(timeUpdata / reactionSpeed);
-            }, () => { squatValue = -1; }, 0.01f);// Debug.Log("架势：压低"); 
-
-            timer_Squat = Timer.Start(reactionSpeed, (float timeUpdata) =>
-            {
-                //_ams_pos.y = 0.75f * squatValue * ((reactionSpeed - timeUpdata) / reactionSpeed);
-                posGunEnd0 =  squatValue * ((reactionSpeed-timeUpdata) / reactionSpeed);
-                //Debug.Log($"posGunEnd0:{posGunEnd0}={posGunStart.y}+{squatValue}*(({reactionSpeed}-{timeUpdata})/{reactionSpeed})");
-            }, () =>
-            {
-                squatValue = 0;
-                posGunEnd0 = 0;
-            }, 0.01f);// Debug.Log("架势：平式"); 
-
-            timer_DefendForward = Timer.Start(attackSpeed, (float timeUpdata) =>
-                {
-                    //DefendForward_color.b = 255 - 255 * (timeUpdata / attackSpeed);
-                    //_ams_SpR.color = DefendForward_color;
-                    //timer_SquatUp.Pause(); timer_Squat.Pause(); timer_SquatDoun.Pause();
-                },
-                () =>
-                {
-                    if (behavior == Behavior.Defend)
-                    {
-                        //DefendForward_color.b = 0;
-                        //_ams_SpR.color = DefendForward_color;
-                    }
-                    else
-                    {
-                        //DefendForward_color.b = 255;
-                        //_ams_SpR.color = DefendForward_color;
-                    }
-                    //timer_AttackBack.ReStart(attackSpeed);
-                },
-                0.01f);// Debug.Log("防御：触发"); 
-
-            timer_AttackBack = Timer.Start(attackSpeed, (float timeUpdata) =>
-                {
-                    //_ams_pos.x = 0.4f + ((attackSpeed - timeUpdata) / attackSpeed);
-                    timer_SquatUp.Resume(); timer_Squat.Resume(); timer_SquatDoun.Resume();
-                },
-                () =>
-                {
-                    OrientSwitch = true;
-                    Move_SpeedAttenuation = 1;
-                    if (longPress_Defend) {  SetOrient(orient_Preset, false); ReadyDefend(); } else { behavior = Behavior.Stand; }
-                },
-                0.01f);//Debug.Log("状态返回：攻击"); 
-
-            timer_AttackForward = Timer.Start(attackSpeed, (float timeUpdata) =>
-                {
-                    Move_SpeedAttenuation = 1;
-                    //_ams_pos.x = 4f * (timeUpdata / attackSpeed);
-                    timer_SquatUp.Pause(); timer_Squat.Pause(); timer_SquatDoun.Pause();
-                },
-                () =>
-                {
-                    TriggerAttack(gun, posGunStart, posGunEnd);
-                    timer_AttackBack.ReStart();
-                },
-                0.01f);// Debug.Log("攻击：触发"); 
-            
-            
-            
+                timer_SquatUp.ReStart();
+            }
+            // Debug.Log("架势：抬高"); 
         }
+        private void TimerReStart_SquatDown() 
+        {
+            if (timer_SquatDown == null)
+            {
+                timer_SquatDown = Timer.Start(reactionSpeed, (float timeUpdata) => 
+                    {
+                        posGunEnd0 = -(timeUpdata / reactionSpeed);
+                    }, () =>
+                    {
+                        squatValue = -1;
+                    },
+                    0.01f);
+            }
+            else
+            {
+                timer_SquatDown.ReStart();
+            }
+            // Debug.Log("架势：压低");
+        }
+        private void TimerReStart_Squat()
+        {
+            if (timer_Squat == null)
+            {
+                timer_Squat = Timer.Start(reactionSpeed, (float timeUpdata) =>
+                {
+                    posGunEnd0 =  squatValue * ((reactionSpeed-timeUpdata) / reactionSpeed);
+                }, () =>
+                {
+                    squatValue = 0;
+                    posGunEnd0 = 0;
+                }, 0.01f);
+            }
+            else
+            {
+                timer_Squat.ReStart();
+            }
+            // Debug.Log("架势：平式"); 
+        }
+        private void TimerReStart_DefendForward()
+        {
+            if (timer_DefendForward == null)
+            {
+                timer_DefendForward = Timer.Start(attackSpeed, (float timeUpdata) => 
+                    {
+                    
+                        //timer_SquatUp?.Pause(); timer_Squat?.Pause(); timer_SquatDown?.Pause();
+                    },
+                    () =>
+                    {
+                    
+                    },
+                    0.01f);
+            }
+            else
+            {
+                timer_DefendForward.ReStart();
+            }
+            // Debug.Log("防御：触发"); 
+        }
+        private void TimerReStart_AttackBack()
+        {
+            if (timer_AttackBack == null)
+            {
+                timer_AttackBack = Timer.Start(attackSpeed, (float timeUpdata) =>
+                    {
+                        timer_SquatUp?.Resume(); timer_Squat?.Resume(); timer_SquatDown?.Resume();
+                    },
+                    () =>
+                    {
+                        OrientSwitch = true;
+                        Move_SpeedAttenuation = 1;
+                        if (longPress_Defend) {  SetOrient(orient_Preset, false); ReadyDefend(); } else { behavior = Behavior.Stand; }
+                    },
+                    0.01f);
+            }
+            else
+            {
+                timer_AttackBack.ReStart();
+            }
+            //Debug.Log("状态返回：攻击"); 
+        }
+        private void TimerReStart_AttackForward()
+        {
+            if (timer_AttackForward == null)
+            {
+                timer_AttackForward = Timer.Start(attackSpeed, (float timeUpdata) =>
+                    {
+                        Move_SpeedAttenuation = 1;
+                        timer_SquatUp?.Pause(); timer_Squat?.Pause(); timer_SquatDown?.Pause();
+                    },
+                    () =>
+                    {
+                        TriggerAttack(gun, posGunStart, posGunEnd);
+                        TimerReStart_AttackBack();
+                    },
+                    0.01f);
+            }
+            else
+            {
+                timer_AttackForward.ReStart();
+            }
+            // Debug.Log("攻击：触发"); 
+        }
+        
+        
+        
         
         public void Moving(float x, float jumpForce)
         {
             //if(isFlying) flyHw.x = x;
             float mSpeed = 4f;
+            Vector2 pos = Vector2.zero;
             //transform.Translate(Vector3.forward * vertical * m_speed * Time.deltaTime);//?? ??
             if (behavior == Behavior.Attack)
             {
                 if (isGround)
                 {
                     transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f)));//攻击时地面速度减慢
+                    //pos.x = x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation / 3.6f);
+                    //var b = transform.position.x + x*10;
+                    //pos.x = b;
                 }
                 else
                 {
                     transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation));//攻击时空中可以移动
+                    //var b = transform.position.x + x*10;
+                    //pos.x = b;
+
                 }
             }
             else
@@ -262,15 +308,17 @@ namespace Script.MVC.Module.Class
                 if (jumpForce > 0)
                 {
                     transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation/3.6f))); //????
+                    //pos.x = x * mSpeed * Time.deltaTime * (Move_SpeedAttenuation / 3.6f);
 
                 }
                 else
                 {
                     transform.Translate(Vector3.right * (x * mSpeed * Time.deltaTime * Move_SpeedAttenuation)); //????
+                    //pos.x = x * mSpeed * Time.deltaTime * Move_SpeedAttenuation;
+
                 }
 
             }
-            
             SetOrient(x, TargetLocked);
             //Debug.Log(x.ToString());
         }
@@ -325,9 +373,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO >= 0.34) { }
                 else
                 {
-                    timer_Squat.Pause();
-                    timer_SquatDoun.Pause();
-                    timer_SquatUp.ReStart();
+                    timer_Squat?.Pause();
+                    timer_SquatDown?.Pause();
+                    TimerReStart_SquatUp();
                     squatYO = y;
                 }
             }
@@ -336,9 +384,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO <= -0.34) { }
                 else
                 {
-                    timer_SquatUp.Pause();
-                    timer_Squat.Pause();
-                    timer_SquatDoun.ReStart();
+                    timer_SquatUp?.Pause();
+                    timer_Squat?.Pause();
+                    TimerReStart_SquatDown();
                     squatYO = y;
                 }
             }
@@ -347,9 +395,9 @@ namespace Script.MVC.Module.Class
                 if (squatYO > -0.34 && squatYO < 0.34) { }
                 else
                 {
-                    timer_SquatUp.Pause();
-                    timer_SquatDoun.Pause();
-                    timer_Squat.ReStart();
+                    timer_SquatUp?.Pause();
+                    timer_SquatDown?.Pause();
+                    TimerReStart_Squat();
                     squatYO = y;
                 }
             }
@@ -381,7 +429,7 @@ namespace Script.MVC.Module.Class
             {
                 OrientSwitch = false;
                 behavior = Behavior.Attack;
-                timer_AttackForward.ReStart(attackSpeed);
+                TimerReStart_AttackForward();
                 //Move_SpeedAttenuation = 0.01f;
             }
         }
@@ -395,13 +443,13 @@ namespace Script.MVC.Module.Class
             {
                 OrientSwitch = false;
                 behavior = Behavior.Defend;
-                timer_DefendForward.ReStart(attackSpeed);
+                TimerReStart_DefendForward();
             }
             if (behavior == Behavior.Attack && longPress_Defend)
             {
                 OrientSwitch = false;
                 behavior = Behavior.Defend;
-                timer_DefendForward.ReStart(attackSpeed);
+                TimerReStart_DefendForward();
             }
         }
         /// <summary>
@@ -412,7 +460,7 @@ namespace Script.MVC.Module.Class
 
             if (behavior == Behavior.Defend)
             {
-                timer_DefendForward.Resume();
+                timer_DefendForward?.Resume();
                 OrientSwitch = true;
                 behavior = Behavior.Stand;
                 //DefendForward_color.b = 255;
@@ -510,6 +558,28 @@ namespace Script.MVC.Module.Class
             }
         }
 
+        void FixedUpdate()
+        {
+            // 在FixedUpdate中进行物理计算
+        }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (!rig) return;
+            // 获取碰撞的接触点信息
+            ContactPoint2D[] contacts = collision.contacts;
+            foreach (ContactPoint2D contact in contacts)
+            {
+                // 计算接触点的相对速度
+                Vector2 relativeVelocity = contact.relativeVelocity;
+                relativeVelocity.y *= 0.3f;
+                // 施加给生物
+                rig.AddForce(relativeVelocity, ForceMode2D.Impulse);
+            }
+        }
+        
+        
+        
         public LayerMask groundLayer; // 将1左移7位，表示只检测第7图层
         public void Land()
         {
