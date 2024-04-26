@@ -1,4 +1,3 @@
-using Script.MVC.Module.Class;
 using Script.MVC.Module.Collision;
 using UnityEngine;
 using Timer = Script.MVC.Other.Timer2.Timer;
@@ -9,7 +8,7 @@ namespace Script.MVC.Module.Ejector
     {
         //public GameObject obj;
         public Gun parent;
-        public Biota owner;
+        public GameObject owner;
         public BoxCollider2D boxCollider;
         public new Rigidbody2D rigidbody;
         public CollisionTrigger collisionTrigger;
@@ -68,7 +67,7 @@ namespace Script.MVC.Module.Ejector
         {
             lifeTimer?.Pause();
         }
-        void ReleaseBullet()
+        public void ReleaseBullet()
         {
             // 如果已经释放，则不执行后续释放操作
             //if (released)return;

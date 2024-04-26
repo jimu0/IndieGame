@@ -1,4 +1,5 @@
 using Script.MVC.Module.Class;
+using Script.MVC.Module.Ejector;
 using Script.MVC.Module.Frame.GameplayInit;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace Script.MVC.Module.Collision
 {
     public class CollisionTrigger : MonoBehaviour
     {
-        [SerializeField] public Biota owner;//伤害所有者
+        public GameObject owner;//伤害所有者
+        public BulletClass bulletClass;//如果是子弹,用于撞墙销毁
         //private Biota biota;
         private const int MaxCollisionSize = 300; //最大碰撞盒体积限制，以保证宽敞的排泄区
         private int id;//每个碰撞器应该具有唯一性
@@ -46,10 +48,18 @@ namespace Script.MVC.Module.Collision
         {
             if(owner)
             //判断碰撞物标签不能是同类，并且判断层级为9:生物或10:可破坏物，才通过
-            if (!collision.gameObject.CompareTag(owner.tag) && (collision.gameObject.layer == 9||collision.gameObject.layer == 10))
+            if (!collision.gameObject.CompareTag(owner.tag) && (collision.gameObject.layer == 9||collision.gameObject.layer == 10||collision.gameObject.layer == 6||collision.gameObject.layer == 7))
             {
                 //collision.gameObject.GetComponent<Biota>().Be_Hit(owner, 1);
-                GameplayInit.Instance.DicPawns[collision.gameObject].Be_Hit(owner, 1);
+                //GameplayInit.Instance.DicPawns[collision.gameObject].Be_Hit(owner, 1);
+                if (collision.gameObject.layer != 10)
+                {
+                    collision.gameObject.GetComponent<Biota>()?.Be_Hit(owner, 1);
+                }
+                else
+                {
+                    if(bulletClass) bulletClass.ReleaseBullet();
+                }
                 Col_OFF();
             }
         

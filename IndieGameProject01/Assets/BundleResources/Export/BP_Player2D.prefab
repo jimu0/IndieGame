@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbfb1d5d283de141b73b8b5a8b745b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: -663829854743484844}
+  owner: {fileID: 0}
+  bulletClass: {fileID: 0}
 --- !u!1 &2131452569605840312
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131452569605840312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab7f5f260634caf49bffe5961caf6051, type: 3}
   m_Name: 
@@ -444,7 +445,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7172609225469027393}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -503,7 +504,7 @@ GameObject:
   - component: {fileID: -663829854743484844}
   - component: {fileID: 7172609226625809592}
   - component: {fileID: -8434449283450606218}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: BP_Player2D
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -518,7 +519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7172609226625809594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -580,7 +581,8 @@ MonoBehaviour:
   PosInt: {x: 0, y: 0, z: 0}
   GameMode: {fileID: 0}
   isGround: 0
-  landing: 0
+  isPlatform: 0
+  boxCollider2D: {fileID: 0}
   _targetObject: {fileID: 0}
   behavior: 0
   _HP: 0
@@ -600,8 +602,8 @@ MonoBehaviour:
   orient_Preset: 1
   OrientSwitch: 0
   TargetLocked: 0
-  force: 10
-  gun: {fileID: 0}
+  force: 8
+  gun: {fileID: -8434449283450606218}
   posGunStart: {x: 0, y: 0}
   posGunEnd: {x: 0, y: 0}
   posGunEnd0: 0
@@ -619,7 +621,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7172609226625809594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fec2b324b36352b41b7ae1c42aba1615, type: 3}
   m_Name: 
@@ -637,13 +639,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977d0220a1fbb034e90ec880d221bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 7172609226625809594}
   bulletPrefab: {fileID: 3060367523129224763, guid: e511462eef240de4393c250dfa1f99e7,
     type: 3}
   pierce: 1
-  gravitation: 1
+  gravitation: 0
   lockOrient: 1
-  fireForce: 8
+  fireForce: 12
 --- !u!1001 &3288054792822359555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,6 +717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: jijia
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48d298e487ea2504fbaa8e35dd609282,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d298e487ea2504fbaa8e35dd609282, type: 3}

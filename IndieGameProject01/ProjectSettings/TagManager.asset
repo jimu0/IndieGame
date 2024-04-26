@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Ground
-  - InjurySource
   layers:
   - Default
   - TransparentFX
@@ -14,12 +12,20 @@ TagManager:
   - 
   - Water
   - UI
-  - ground
-  - player
-  - bullet
-  - biology
-  - destructible
-  - pos
+  - 
+  - 
+  - Level
+  - Enemy
+  - Usable
+  - Interactable
+  - IgnorePlayer
+  - Player
+  - Cameras
+  - LitSprites
+  - Destructable
+  - EnemyWeapon
+  - BossWeakPoint
+  - Bullet
   - 
   - 
   - 
@@ -30,17 +36,18 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerDrop
+  - Platform
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 2116099231
+    locked: 0
+  - name: Level
+    uniqueID: 2344118779
+    locked: 0
+  - name: Front
+    uniqueID: 3405993979
     locked: 0

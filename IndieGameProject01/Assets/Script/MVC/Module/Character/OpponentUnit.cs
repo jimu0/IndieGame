@@ -7,10 +7,11 @@ namespace Script.MVC.Module.Character
 {
     public class OpponentUnit : Biota, I_OpponentUnit
     {
+        
         private void Awake()
         {
             gun = GetComponent<Gun>();
-            gun.owner = this;
+            gun.owner = gameObject;
             reactionSpeed = 0.1f;
             attackSpeed = 0.2f;
             
@@ -20,17 +21,17 @@ namespace Script.MVC.Module.Character
 
         // void Start()
         // {
+        //
         // }
 
         void Update()
         {
             Vector3 position = gameObject.transform.position;
             posGunStart = position;
-            posGunEnd.x = position.x + orient_Preset;
-            posGunEnd.y = position.y + 1;
+            //posGunEnd.x = position.x + orient_Preset;
+            posGunEnd = position + pos_gunEnd.transform.localPosition;
             pos_gunStart.transform.SetPositionAndRotation(posGunStart,pos_gunStart.transform.rotation);
             pos_gunEnd.transform.SetPositionAndRotation(posGunEnd,pos_gunEnd.transform.rotation);
-
         }
 
 
@@ -75,6 +76,10 @@ namespace Script.MVC.Module.Character
             //Debug.Log("????????");
         }
 
+        public void DeadState()
+        {
+            Die();
+        }
         //-------------------------------------------------------------------------------------------------
 
 

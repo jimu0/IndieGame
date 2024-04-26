@@ -6,7 +6,7 @@ namespace Script.MVC.Module.Ejector
 {
     public class Gun : MonoBehaviour
     {
-        public Biota owner;
+        public GameObject owner;
         [SerializeField] private GameObject bulletPrefab;//子弹
         private Vector2 posGunStart;//子弹目标点
         private Vector2 posGunEnd;

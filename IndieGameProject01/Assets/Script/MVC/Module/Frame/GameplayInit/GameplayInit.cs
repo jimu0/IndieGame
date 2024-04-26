@@ -35,7 +35,7 @@ namespace Script.MVC.Module.Frame.GameplayInit
             DicPawns.Clear(); 
         
             Transform playerUnitTsf = playerUnit.transform;
-            Vector3 vector = new Vector3(0, 0, 0);
+            Vector3 vector = new Vector3(0, 6, 0);
             for (int i = 0; i < 2; i++)
             {
                 vector.x += 5;//!

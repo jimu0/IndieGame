@@ -1,3 +1,4 @@
+using Gamekit2D;
 using Script.MVC.Module.Class;
 using Script.MVC.Module.Ejector;
 using Script.MVC.Other.Timer2;
@@ -14,7 +15,10 @@ namespace Script.MVC.Module.Character
         //private Vector2 flyHw = Vector2.zero;
         //public float flySpeed = 5f; // 推进器推力大小
         private float jumpForce;
+        private float jumpDamping=3.6f;//移动衰减，用于起跳前蓄力时
         private bool isJumpD;
+        private bool crouch;//是否蹲下
+        private bool crouchDive;//允许下挑穿过单向平台
         //public bool isFlying;
         public float ux;
         private void Awake()
@@ -22,7 +26,7 @@ namespace Script.MVC.Module.Character
             
             rig = GetComponent<Rigidbody2D>();
             gun = GetComponent<Gun>();
-            gun.owner = this;
+            gun.owner = gameObject;
             //_Tsf_ams = _Obj_ams.transform;
             //_ams_SpR = _Obj_ams.GetComponent<SpriteRenderer>();
             reactionSpeed = 0.1f;
@@ -49,18 +53,37 @@ namespace Script.MVC.Module.Character
             pos_gunStart.transform.SetPositionAndRotation(posGunStart,pos_gunStart.transform.rotation);
             pos_gunEnd.transform.SetPositionAndRotation(posGunEnd,pos_gunEnd.transform.rotation);
 
-            //landing = 
-            Land();
-            //flying();
+            // Land();
+            // if (behavior == Behavior.Die)
+            // {
+            //     TriggerResurrection();
+            // }
         }
-    
+        
+        // public CharacterController2D m_CharacterController2D;
+        // public Vector2 m_MoveVector;
+        // void FixedUpdate()
+        // { 
+        //     m_CharacterController2D.Move(m_MoveVector * Time.deltaTime);
+        //     //m_Animator.SetFloat(m_HashHorizontalSpeedPara, m_MoveVector.x);
+        //     //m_Animator.SetFloat(m_HashVerticalSpeedPara, m_MoveVector.y);
+        //     //UpdateBulletSpawnPointPositions();
+        //     //UpdateCameraFollowTargetPosition();
+        // }
+        
         private void TimerReStart_SquatUp()
         {
             // 跳跃蓄力时间
             if (timerJump == null)
             {
-                timerJump = Timer.Start(1f, (update) => { jumpForce = update * 6f;
-                }, () => {}, 0.01f);
+                timerJump = Timer.Start(1f, (update) => 
+                { 
+                    jumpForce = 6f * update;
+                    jumpDamping = 1.2f - update;
+                }, () =>
+                {
+                    jumpDamping = 0.2f;
+                }, 0.01f);
             }
             else
             {
@@ -71,12 +94,13 @@ namespace Script.MVC.Module.Character
         public void Move(float x)
         {
             ux = x;
-            Moving(x,jumpForce);
+            //Moving(x,jumpForce,jumpDamping,3.6f);
         }
 
         public void Squat(float y)
         {
             //if(isFlying) flyHw.y = y;
+            crouchDive = y < 0.1f && isPlatform;
             judgeTheSquat(y);
         }
 
@@ -119,14 +143,32 @@ namespace Script.MVC.Module.Character
             if (isJumpD && isGround)
             {
                 isJumpD = false;
-                TimerReStart_SquatUp();
+                if (crouchDive)
+                {
+                    timerJump.Pause();
+                    jumpForce = 0;
+                    if (boxCollider2D)
+                    {
+                        PlatformEffector2D platform = boxCollider2D.GetComponent<PlatformEffector2D>();
+                        int playerLayer = LayerMask.NameToLayer("player"); // 获取 player 图层的索引
+                        int layerMask = platform.colliderMask; // 获取当前的碰撞器掩码值
+                        layerMask &= ~(1 << playerLayer); // 将 Player 图层对应的位设为 0，表示排除该图层
+                        platform.colliderMask = layerMask; // 将更新后的掩码值应用到碰撞器
+                        isPlatform = false;
+                        //crouchDive = false;
+                    }
+                }
+                else
+                {
+                    TimerReStart_SquatUp();
+                }
             }
         }
         public void JumpU()
         {
             isJumpD = false;
             timerJump?.Pause();
-            if (isGround) ReadyJump(rig, jumpForce);
+            if (isGround && !crouchDive) ReadyJump(rig, jumpForce);
             jumpForce = 0;
             
         }
@@ -169,39 +211,22 @@ namespace Script.MVC.Module.Character
         {
             isGround = false;
         }
-        
-        
-        
-        // IEnumerator ApplyForce()
+        // /// <summary>
+        // /// 触发死亡
+        // /// </summary>
+        // public void TriggerDie()
         // {
-        //     // 持续 2 秒
-        //     float duration = 2.0f;
-        //     float elapsedTime = 0.0f;
-        //     
-        //     while (elapsedTime < duration)
-        //     {
-        //         // 等待下一帧
-        //         yield return null;
-        //     }
-        //     isFlying = false;
+        //     timerJump?.Pause();
+        //     Die();
         // }
-
-        // void flying()
+        // /// <summary>
+        // /// 触发复活
+        // /// </summary>
+        // private void TriggerResurrection()
         // {
-        //     if (isFlying)
-        //     {
-        //         if (flyHw != Vector2.zero)
-        //         {
-        //             // 根据方向键输入来控制飞行方向
-        //             Vector2 movement = new Vector2(flyHw.x, flyHw.y).normalized * flySpeed;
-        //             rig.velocity = movement;
-        //         }
-        //         else
-        //         {
-        //             rig.velocity = Vector2.zero;
-        //         }
-        //     }
+        //     Resurrection();
         // }
+        
 
 
     }

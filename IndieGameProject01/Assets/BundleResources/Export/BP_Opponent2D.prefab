@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbfb1d5d283de141b73b8b5a8b745b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 2910195575468946847}
+  owner: {fileID: 0}
 --- !u!1 &999773099536416017
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 0b83860a73234774bbb92ede44299f14, type: 3}
   m_Color: {r: 0.7372549, g: 0.5303634, b: 0.49019608, a: 1}
   m_FlipX: 0
@@ -470,12 +470,13 @@ MonoBehaviour:
   OrientSwitch: 0
   TargetLocked: 0
   force: 5
-  gun: {fileID: 0}
+  gun: {fileID: -8279928004618261870}
   posGunStart: {x: 0, y: 0}
   posGunEnd: {x: 1, y: 1}
   posGunEnd0: 0
   pos_gunStart: {fileID: 0}
   pos_gunEnd: {fileID: 0}
+  rig: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -508,10 +509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977d0220a1fbb034e90ec880d221bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 7172609226625809594}
   bulletPrefab: {fileID: 3060367523129224763, guid: 5239705319bb9274993ff6bf3da389f8,
     type: 3}
-  loop: 1
   pierce: 1
   gravitation: 1
   lockOrient: 1
@@ -588,7 +588,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0

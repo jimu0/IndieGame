@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4980585508374890437}
   - component: {fileID: 2562251021341846500}
   - component: {fileID: 8839083563662033098}
-  m_Layer: 8
+  m_Layer: 19
   m_Name: bullet1
   m_TagString: InjurySource
   m_Icon: {fileID: 0}
@@ -168,3 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  bulletClass: {fileID: 0}
