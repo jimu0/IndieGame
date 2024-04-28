@@ -89,6 +89,8 @@ namespace Gamekit2D
 
         protected bool m_Dead = false;
 
+        public GameObject aniGameObj;//动画obj
+
         protected readonly int m_HashSpottedPara = Animator.StringToHash("Spotted");
         protected readonly int m_HashShootingPara = Animator.StringToHash("Shooting");
         protected readonly int m_HashTargetLostPara = Animator.StringToHash("TargetLost");
@@ -102,6 +104,7 @@ namespace Gamekit2D
             m_CharacterController2D = GetComponent<CharacterController2D>();
             m_Collider = GetComponent<Collider2D>();
             m_Animator = GetComponent<Animator>();
+            if (!m_Animator) m_Animator = aniGameObj.GetComponent<Animator>();//jim
             m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
             m_OriginalColor = m_SpriteRenderer.color;
@@ -206,6 +209,15 @@ namespace Gamekit2D
                 m_SpriteRenderer.flipX = spriteFaceLeft;
                 m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
             }
+            //jim
+            if (aniGameObj)
+            {
+                Transform aniGameObjTfm = aniGameObj.transform;
+                Vector3 aniGameObjScale = Vector3.one;
+                aniGameObjScale.x = m_SpriteRenderer.flipX ? 1 : -1;
+                aniGameObjScale.y = -1;
+                aniGameObjTfm.localScale = aniGameObjScale;
+            }
         }
 
         public void SetMoveVector(Vector2 newMoveVector)
@@ -226,6 +238,7 @@ namespace Gamekit2D
             {
                 SetFacingData(1);
             }
+            
         }
 
         public void ScanForPlayer()
@@ -536,7 +549,10 @@ namespace Gamekit2D
             Vector3 forward = spriteFaceLeft ? Vector2.left : Vector2.right;
             forward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * forward;
 
-            if (GetComponent<SpriteRenderer>().flipX) forward.x = -forward.x;
+            if (GetComponent<SpriteRenderer>().flipX)
+            {
+                forward.x = -forward.x;
+            }
 
             Vector3 endpoint = transform.position + (Quaternion.Euler(0, 0, viewFov * 0.5f) * forward);
 

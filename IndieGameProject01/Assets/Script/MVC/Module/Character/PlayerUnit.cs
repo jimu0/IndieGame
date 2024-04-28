@@ -94,7 +94,7 @@ namespace Script.MVC.Module.Character
         public void Move(float x)
         {
             ux = x;
-            //Moving(x,jumpForce,jumpDamping,3.6f);
+            Moving(x,jumpForce,jumpDamping,3.6f);
         }
 
         public void Squat(float y)

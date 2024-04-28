@@ -2679,13 +2679,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317895926683368476}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: BP_BasicTerrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1317895926683368476
 Transform:
   m_ObjectHideFlags: 0

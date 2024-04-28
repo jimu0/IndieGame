@@ -241,6 +241,7 @@
      <None Include="Assets\2DGamekit\Utilities\Shaders\NormalMappedSprite-Animated.shader" />
      <None Include="Assets\2DGamekit\Utilities\Shaders\NormalMappedSprite.shader" />
      <None Include="Assets\2DGamekit\Utilities\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\Art\Text\textUnit_3500.txt" />
      <None Include="Assets\2DGamekit\Utilities\TextMesh Pro\Sprites\EmojiOne_License.txt" />
      <None Include="Assets\2DGamekit\Utilities\Fonts\Rajdhani\RajdhaniFontLicense.txt" />
      <None Include="Assets\2DGamekit\2DGameKit_Third-PartyNotice.txt" />
