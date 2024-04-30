@@ -15,22 +15,22 @@ namespace Gamekit2D
         public class NonDamagableEvent : UnityEvent<Damager>
         { }
 
-        //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
+        //从onDamageableHIt或OnNonDamageableHit内部调用它来获取被击中的内容。
         public Collider2D LastHit { get { return m_LastHit; } }
 
         public int damage = 1;
         public Vector2 offset = new Vector2(1.5f, 1f);
         public Vector2 size = new Vector2(2.5f, 1f);
-        [Tooltip("If this is set, the offset x will be changed base on the sprite flipX setting. e.g. Allow to make the damager alway forward in the direction of sprite")]
+        [Tooltip("如果设置了此值，则偏移量x将根据sprite的flipX设置进行更改。允许使伤害者总是sprite的方向前进")]
         public bool offsetBasedOnSpriteFacing = true;
-        [Tooltip("SpriteRenderer used to read the flipX value used by offset Based OnSprite Facing")]
+        [Tooltip("SpriteRenderer用于读取基于偏移的OnSprite Facing使用的flipX值")]
         public SpriteRenderer spriteRenderer;
-        [Tooltip("If disabled, damager ignore trigger when casting for damage")]
+        [Tooltip("如果禁用，伤害者在施放伤害时忽略触发")]
         public bool canHitTriggers;
         public bool disableDamageAfterHit = false;
-        [Tooltip("If set, the player will be forced to respawn to latest checkpoint in addition to loosing life")]
+        [Tooltip("如果为true，玩家除了失去生命外，还将被迫重生到最近的检查点")]
         public bool forceRespawn = false;
-        [Tooltip("If set, an invincible damageable hit will still get the onHit message (but won't loose any life)")]
+        [Tooltip("如果为true，无敌伤害命中仍然会得到onHit消息(但不会失去任何生命)")]
         public bool ignoreInvincibility = false;
         public LayerMask hittableLayers;
         public DamagableEvent OnDamageableHit;

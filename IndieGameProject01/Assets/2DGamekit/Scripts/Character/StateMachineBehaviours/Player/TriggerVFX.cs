@@ -35,10 +35,10 @@ namespace Gamekit2D
             bool flip = false;
             SpriteRenderer spriteRender = transform.GetComponent<SpriteRenderer>();
             if (spriteRender) flip = spriteRender.flipX;
-            else
-            {
-                flip = transform.localScale.x > 0;//jim
-            }
+            // else
+            // {
+            //      flip = transform.localScale.x > 0;//jim
+            // }
 
             VFXController.Instance.Trigger(vfxName, offset, startDelay, flip, attachToParent ? transform : null);
         }
