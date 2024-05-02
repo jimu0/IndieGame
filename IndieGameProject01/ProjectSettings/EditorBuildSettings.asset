@@ -51,15 +51,42 @@ EditorBuildSettings:
     path: 
     guid: 4cd84ec85aa0ccb42b6fc04e27ef2e91
   - enabled: 1
-    path: Assets/2DGamekit/Scenes/Level1.unity
+    path: Assets/2DGamekit/Scenes/Level2.unity
     guid: 94bb6fe4cce2c0a4e956cfc6b1c28aee
   - enabled: 1
-    path: Assets/2DGamekit/Scenes/Level1_2.unity
+    path: Assets/2DGamekit/Scenes/Level1_2X.unity
     guid: 57b9039025232af44a0aa00ec19ce87a
   - enabled: 1
-    path: Assets/2DGamekit/Scenes/Level2.unity
+    path: Assets/2DGamekit/Scenes/Level3.unity
     guid: ed82825f48aefc64ab35357a3f6bc0a7
   - enabled: 1
     path: Assets/Level8.unity
     guid: ceefe273ea3dd5946bfe653826f0d076
+  - enabled: 1
+    path: 
+    guid: 000eff71e8ed67a40a141732bfdb68f6
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_4.unity
+    guid: 45b66e71fa18d924992f9f7c192e15c4
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_8.unity
+    guid: 1d645ea9b98dbfe4eb6805a4e2410884
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_7.unity
+    guid: c3a286d121e9d194a8addd17b616627b
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_6.unity
+    guid: ac056ca9b2cb2be40a3cf2a8ef586946
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_5.unity
+    guid: dab97b03a7375f04fbf69c0a7816ab9a
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_3.unity
+    guid: 011b21779a126a34a97f1228801b8c10
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_2.unity
+    guid: d65f2ab8fdaf60048ae1d263116b8ffb
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Level1_1.unity
+    guid: 625ca9ef085c98d42990039b7aa89a85
   m_configObjects: {}
