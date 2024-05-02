@@ -199,6 +199,7 @@ namespace Gamekit2D
                     Unpause();
                 }
             }
+
         }
 
         void FixedUpdate()
@@ -208,6 +209,7 @@ namespace Gamekit2D
             m_Animator.SetFloat(m_HashVerticalSpeedPara, m_MoveVector.y);
             UpdateBulletSpawnPointPositions();
             UpdateCameraFollowTargetPosition();
+            
         }
 
         public void Unpause()
@@ -318,15 +320,22 @@ namespace Gamekit2D
             //检查玩家和子弹生成位置之间是否有一堵墙，如果有就不生成子弹
             //否则，玩家可以穿墙射，因为手臂延伸到墙的另一边
             Vector2 testPosition = transform.position;
-            testPosition.y = m_CurrentBulletSpawnPoint.position.y;
-            Vector2 direction = (Vector2)m_CurrentBulletSpawnPoint.position - testPosition;
+            var position = m_CurrentBulletSpawnPoint.position;
+            testPosition.y = position.y;
+            Vector2 direction = (Vector2)position - testPosition;
             float distance = direction.magnitude;
             direction.Normalize();
+            
+            // //jim
+            // Vector3 v = position;
+            // v.y = 1.01f;
+            // position = v;
+            // m_CurrentBulletSpawnPoint.position = position;
 
             RaycastHit2D[] results = new RaycastHit2D[12];
             if (Physics2D.Raycast(testPosition, direction, m_CharacterController2D.ContactFilter, results, distance) > 0)
                 return;
-
+            
             BulletObject bullet = bulletPool.Pop(m_CurrentBulletSpawnPoint.position);
             bool facingLeft = m_CurrentBulletSpawnPoint == facingLeftBulletSpawnPoint;
             bullet.rigidbody2D.velocity = new Vector2(facingLeft ? -bulletSpeed : bulletSpeed, 0f);
