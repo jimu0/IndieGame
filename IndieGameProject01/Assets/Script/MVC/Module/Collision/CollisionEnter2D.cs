@@ -52,7 +52,7 @@ namespace Script.MVC.Module.Collision
         {
             if(!platform.dieMode)return;
             // 检查碰撞的 GameObject 是否属于 biology或player
-            if (collision.gameObject.layer == UnityEngine.LayerMask.NameToLayer("biology")||collision.gameObject.layer == UnityEngine.LayerMask.NameToLayer("player"))
+            if (collision.gameObject.layer == UnityEngine.LayerMask.NameToLayer("biology")||collision.gameObject.layer == UnityEngine.LayerMask.NameToLayer("Player"))
             {
                 platform.TimerStart_LifeTime(platform.lifeTimeDie,platform.dieAnim);
             }

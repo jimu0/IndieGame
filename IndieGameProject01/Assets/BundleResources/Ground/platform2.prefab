@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3027006586920885942}
   - component: {fileID: 178599437880837254}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: platform2
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7745129107863322887}
   - component: {fileID: 7486138763909074630}
   - component: {fileID: 3965300130427419844}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: dieMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2786047862357632491}
   - component: {fileID: 1701090015194583198}
   - component: {fileID: 5176789781529984491}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9193538245591622735}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126764723086353330}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: point0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 5659979453529668852}
   - component: {fileID: 8984245876434880551}
   - component: {fileID: 5527545920111268141}
-  m_Layer: 6
+  m_Layer: 31
   m_Name: collision
   m_TagString: Platform
   m_Icon: {fileID: 0}
