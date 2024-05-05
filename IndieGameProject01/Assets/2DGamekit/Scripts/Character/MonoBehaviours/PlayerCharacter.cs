@@ -23,9 +23,9 @@ namespace Gamekit2D
         public Damager meleeDamager;
         public Transform facingLeftBulletSpawnPoint;
         public Transform facingRightBulletSpawnPoint;
-        public Transform facingUpBulletSpawnPoint;
-        public Transform facingUpLeftBulletSpawnPoint;
-        public Transform facingUpRightBulletSpawnPoint;
+        //public Transform facingUpBulletSpawnPoint;
+        //public Transform facingUpLeftBulletSpawnPoint;
+        //public Transform facingUpRightBulletSpawnPoint;
         public BulletPool bulletPool;
         public Transform cameraFollowTarget;
 
@@ -405,17 +405,17 @@ namespace Gamekit2D
                 if (faceLeft)
                 {
                     spriteRenderer.flipX = !spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingUpLeftBulletSpawnPoint;
+                    //m_CurrentBulletSpawnPoint = facingUpLeftBulletSpawnPoint;
 
                 }
                 else if (faceRight)
                 {
                     spriteRenderer.flipX = spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingUpRightBulletSpawnPoint;
+                    //m_CurrentBulletSpawnPoint = facingUpRightBulletSpawnPoint;
                 }
                 else
                 {
-                    m_CurrentBulletSpawnPoint = facingUpBulletSpawnPoint;
+                    //m_CurrentBulletSpawnPoint = facingUpBulletSpawnPoint;
                 }
             }
             else
@@ -435,33 +435,17 @@ namespace Gamekit2D
 
         }
 
-        public void UpdateFacing(bool faceLeft,bool faceUp)
+        public void UpdateFacing(bool faceLeft)
         {
-            if (faceUp)
+            if (faceLeft)
             {
-                if (faceLeft)
-                {
-                    spriteRenderer.flipX = !spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingUpLeftBulletSpawnPoint;
-                }
-                else
-                {
-                    spriteRenderer.flipX = spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingUpRightBulletSpawnPoint;
-                }
+                spriteRenderer.flipX = !spriteOriginallyFacesLeft;
+                m_CurrentBulletSpawnPoint = facingLeftBulletSpawnPoint;
             }
             else
             {
-                if (faceLeft)
-                {
-                    spriteRenderer.flipX = !spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingLeftBulletSpawnPoint;
-                }
-                else
-                {
-                    spriteRenderer.flipX = spriteOriginallyFacesLeft;
-                    m_CurrentBulletSpawnPoint = facingRightBulletSpawnPoint;
-                }
+                spriteRenderer.flipX = spriteOriginallyFacesLeft;
+                m_CurrentBulletSpawnPoint = facingRightBulletSpawnPoint;
             }
         }
 
@@ -736,7 +720,7 @@ namespace Gamekit2D
             if (!PlayerInput.Instance.HaveControl)
                 return;
 
-            UpdateFacing(damageable.GetDamageDirection().x > 0f,PlayerInput.Instance.Vertical.Value>0);
+            UpdateFacing(damageable.GetDamageDirection().x > 0f);
             damageable.EnableInvulnerability();
 
             m_Animator.SetTrigger(m_HashHurtPara);
@@ -838,12 +822,12 @@ namespace Gamekit2D
 
             if (useCheckpoint && m_LastCheckpoint != null)
             {
-                UpdateFacing(m_LastCheckpoint.respawnFacingLeft,PlayerInput.Instance.Vertical.Value>0);
+                UpdateFacing(m_LastCheckpoint.respawnFacingLeft);
                 GameObjectTeleporter.Teleport(gameObject, m_LastCheckpoint.transform.position);
             }
             else
             {
-                UpdateFacing(m_StartingFacingLeft,PlayerInput.Instance.Vertical.Value>0);
+                UpdateFacing(m_StartingFacingLeft);
                 GameObjectTeleporter.Teleport(gameObject, m_StartingPosition);
             }
         }

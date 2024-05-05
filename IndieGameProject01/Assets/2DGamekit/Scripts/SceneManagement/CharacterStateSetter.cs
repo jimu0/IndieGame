@@ -88,7 +88,7 @@ namespace Gamekit2D
                 playerCharacter.SetMoveVector (characterVelocity);
 
             if(setCharacterFacing)
-                playerCharacter.UpdateFacing(faceLeft,PlayerInput.Instance.Vertical.Value>0);
+                playerCharacter.UpdateFacing(faceLeft);
 
             if(setState)
                 animator.Play (m_HashStateName);
