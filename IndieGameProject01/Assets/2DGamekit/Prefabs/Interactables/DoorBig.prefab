@@ -4834,7 +4834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4107532682250152}
   - component: {fileID: 212244933734434562}
-  - component: {fileID: 61046707939968284}
   m_Layer: 0
   m_Name: DoorSpriteR
   m_TagString: Untagged
@@ -4909,32 +4908,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!61 &61046707939968284
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502367281944090}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.53, y: 3.12}
-    newSize: {x: 2, y: 3.0390625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.46, y: 3.0390625}
-  m_EdgeRadius: 0
 --- !u!1 &1656790952191946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,7 +5068,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6942460480517960946}
   - component: {fileID: 2582937029840386067}
-  - component: {fileID: 590778784374286780}
   m_Layer: 0
   m_Name: DoorSpriteL
   m_TagString: Untagged
@@ -5170,29 +5142,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!61 &590778784374286780
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441888839561140785}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.53, y: 3.12}
-    newSize: {x: 2, y: 3.0390625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.46, y: 3.0390625}
-  m_EdgeRadius: 0

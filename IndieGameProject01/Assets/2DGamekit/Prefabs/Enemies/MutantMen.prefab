@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205732023218026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.823, y: 1.11, z: 0}
+  m_LocalPosition: {x: 0.1, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  offset: {x: 0.3504467, y: 0.051783204}
-  size: {x: 1.0808935, y: 1.2664335}
+  offset: {x: 0.7179136, y: 0.12724996}
+  size: {x: 1.8158274, y: 1.7054338}
   offsetBasedOnSpriteFacing: 1
   spriteRenderer: {fileID: 212116918692032108}
   canHitTriggers: 0
@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473400393076168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.37, z: 0}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  offset: {x: -0.0089428425, y: 0.7005074}
-  size: {x: 1.1214728, y: 1.4010148}
+  offset: {x: 0.04498005, y: 0.76713276}
+  size: {x: 1.3721428, y: 1.5342655}
   offsetBasedOnSpriteFacing: 0
   spriteRenderer: {fileID: 0}
   canHitTriggers: 0
@@ -911,13 +911,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   viewDirection: 0
   viewFov: 360
-  viewDistance: 5
-  timeBeforeTargetLost: 2
-  meleeRange: 2
+  viewDistance: 8
+  timeBeforeTargetLost: 1
+  meleeRange: 4
   meleeDamager: {fileID: 114303490521682168}
   contactDamager: {fileID: 114896150691463488}
   attackDash: 1
-  attackForce: {x: 4, y: 2}
+  attackForce: {x: 6, y: 3}
   shootingOrigin: {fileID: 0}
   shootingAudio: {fileID: 0}
   meleeAttackAudio: {fileID: 114843360001791158}
@@ -936,8 +936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960138f0450083543ad1d17e1352019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1
-  invulnerableAfterDamage: 1
+  startingHealth: 9
+  invulnerableAfterDamage: 0
   invulnerabilityDuration: 2
   disableOnDeath: 0
   centreOffset: {x: 0, y: 1}
@@ -946,19 +946,7 @@ MonoBehaviour:
       m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114719609329687142}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Hit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

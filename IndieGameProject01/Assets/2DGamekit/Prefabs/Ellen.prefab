@@ -385,9 +385,6 @@ MonoBehaviour:
   meleeDamager: {fileID: 114460243114916098}
   facingLeftBulletSpawnPoint: {fileID: 4456631231676054}
   facingRightBulletSpawnPoint: {fileID: 4929711121330312}
-  facingUpBulletSpawnPoint: {fileID: 0}
-  facingUpLeftBulletSpawnPoint: {fileID: 0}
-  facingUpRightBulletSpawnPoint: {fileID: 0}
   bulletPool: {fileID: 114680495344679792}
   cameraFollowTarget: {fileID: 4530920980854552}
   maxSpeed: 6
@@ -409,7 +406,7 @@ MonoBehaviour:
   hurtAudioPlayer: {fileID: 114513338842717954}
   meleeAttackAudioPlayer: {fileID: 114450141185934166}
   rangedAttackAudioPlayer: {fileID: 114803637809275856}
-  shotsPerSecond: 5
+  shotsPerSecond: 8
   bulletSpeed: 30
   holdingGunTimeoutDuration: 0.4
   rightBulletSpawnPointAnimated: 0
