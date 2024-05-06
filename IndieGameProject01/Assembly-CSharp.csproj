@@ -219,6 +219,7 @@
      <Compile Include="Assets\2DGamekit\Utilities\DefaultPlayables\LightControl\LightControlClip.cs" />
      <Compile Include="Assets\2DGamekit\Scripts\Character\StateMachineBehaviours\Player\RespawnSMB.cs" />
      <Compile Include="Assets\Script\MVC\Module\Frame\ObjectPool\PoolTest.cs" />
+     <Compile Include="Assets\2DGamekit\Scripts\Utility\TextDieTime.cs" />
      <Compile Include="Assets\2DGamekit\Utilities\DefaultPlayables\TimeDilation\TimeDilationTrack.cs" />
      <Compile Include="Assets\2DGamekit\Scripts\Objects\ObjectPositionResetter.cs" />
      <Compile Include="Assets\2DGamekit\Scripts\Effect\Grenade.cs" />
@@ -232,7 +233,6 @@
      <Compile Include="Assets\2DGamekit\Scripts\Character\MonoBehaviours\VFXController.cs" />
      <Compile Include="Assets\Script\MVC\Module\Character\Player.cs" />
      <Compile Include="Assets\2DGamekit\Scripts\Objects\Pushables\PressurePad.cs" />
-     <Compile Include="Assets\2DGamekit\Scripts\Utility\TextDieTime.cs" />
      <None Include="Assets\2DGamekit\Utilities\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\2DGamekit\Utilities\Shaders\UnityStandardParticleShadow.cginc" />
      <None Include="Assets\2DGamekit\Utilities\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
