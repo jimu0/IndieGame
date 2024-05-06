@@ -484,10 +484,10 @@ namespace Gamekit2D
 
             m_Animator.SetTrigger(m_HashHitPara);
 
-            Vector2 throwVector = new Vector2(0, 3.0f);
+            Vector2 throwVector = new Vector2(0, 0.01f);
             Vector2 damagerToThis = damager.transform.position - transform.position;
 
-            throwVector.x = Mathf.Sign(damagerToThis.x) * -2.0f;
+            throwVector.x = Mathf.Sign(damagerToThis.x) * -0.01f;
             m_MoveVector = throwVector;
 
             if (m_FlickeringCoroutine != null)
@@ -497,7 +497,7 @@ namespace Gamekit2D
             }
 
             m_FlickeringCoroutine = StartCoroutine(Flicker(damageable));
-            CameraShaker.Shake(0.15f, 0.3f);
+            CameraShaker.Shake(0.15f, 0.5f);
         }
 
 
@@ -508,7 +508,10 @@ namespace Gamekit2D
             float sinceLastChange = 0.0f;
 
             Color transparent = m_OriginalColor;
-            transparent.a = 0.2f;
+            transparent.r = 1f;
+            transparent.g = 0.2f;
+            transparent.b = 0.2f;
+            transparent.a = 1f;
             int state = 1;
 
             m_SpriteRenderer.color = transparent;
