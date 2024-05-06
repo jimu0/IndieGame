@@ -17,7 +17,7 @@ namespace Gamekit2D
         IEnumerator SetAnimatorParameterWithDelay (float delay)
         {
             yield return new WaitForSeconds (delay);
-            animator.SetBool(m_HashActivePara, false);
+            if(animator) animator.SetBool(m_HashActivePara, false);
         }
 
         public void ActivateCanvasWithText (string text)
