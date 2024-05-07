@@ -12176,7 +12176,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u6536\u5230\uFF0C\u6BCD\u8230\u540C\u610F\u51FA\u8231\u3002"
+          m_StringArgument: "\u6536\u5230\uFF0C\u6BCD\u8230\u540C\u610F\u51FA\u8231\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
@@ -12613,7 +12613,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u961F\u957F\uFF0C\u4F60\u592A\u5174\u594B\u4E86\u5427\uFF0C\u8BF7\u5148\u6D4B\u8BD5\u9632\u62A4\u670D\u6027\u80FD\uFF0C\u73B0\u5728\u8BF7\u5C1D\u8BD5\u79FB\u52A8\u3002"
+          m_StringArgument: "\u961F\u957F\uFF0C\u4F60\u592A\u5174\u594B\u4E86\u5427\uFF0C\u8BF7\u5148\u6D4B\u8BD5\u9632\u62A4\u670D\u6027\u80FD\uFF0C\u73B0\u5728\u8BF7\u5C1D\u8BD5\u79FB\u52A8\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
@@ -17946,7 +17946,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u662F\u9632~\u62A4~\u670D~\uFF0C\u518D\u6D4B\u8BD5\u4E00\u4E0B\u52A9\u529B\u88C5\u7F6E\uFF0C\u8BF7\u5C1D\u8BD5\u8DF3\u8DC3\u3002"
+          m_StringArgument: "\u662F\u9632~\u62A4~\u670D~\uFF0C\u518D\u6D4B\u8BD5\u4E00\u4E0B\u52A9\u529B\u88C5\u7F6E\uFF0C\u8BF7\u5C1D\u8BD5\u8DF3\u8DC3\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
