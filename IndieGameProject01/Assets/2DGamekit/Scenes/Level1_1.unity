@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3923236592102271484, guid: 114c5f41fd4099445a42c1d9bd01f222,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114c5f41fd4099445a42c1d9bd01f222, type: 3}
 --- !u!1 &99791021
@@ -11467,6 +11472,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5356475484696338605, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11576,6 +11586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueCanvas2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631346174016081651, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb, type: 3}
@@ -12147,7 +12162,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u6536\u5230\uFF0C\u6BCD\u8230\u540C\u610F\u51FA\u8231\u3002"
+          m_StringArgument: "\u526F\u5B98\uFF1A\u6536\u5230\uFF0C\u6BCD\u8230\u540C\u610F\u51FA\u8231\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
@@ -12158,7 +12173,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12170,7 +12185,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12182,7 +12197,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12584,7 +12599,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u961F\u957F\uFF0C\u8BF7\u5148\u6D4B\u8BD5\u4F60\u7684\u9632\u62A4\u670D\u6027\u80FD\uFF0C\u73B0\u5728\u8BF7\u5C1D\u8BD5\u79FB\u52A8\u3002"
+          m_StringArgument: "\u526F\u5B98\uFF1A\u961F\u957F\uFF0C\u4F60\u592A\u5174\u594B\u4E86\u5427\uFF0C\u8BF7\u5148\u6D4B\u8BD5\u9632\u62A4\u670D\u6027\u80FD\uFF0C\u73B0\u5728\u8BF7\u5C1D\u8BD5\u79FB\u52A8\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
@@ -12595,7 +12610,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12607,7 +12622,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 4
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12619,7 +12634,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -13802,7 +13817,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 20.257614, y: 20.76543}
+  m_Offset: {x: 20.257614, y: 22.946438}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13813,7 +13828,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 74.55882, y: 42.53086}
+  m_Size: {x: 74.55882, y: 38.168846}
   m_EdgeRadius: 0
 --- !u!1 &1290113247
 GameObject:
@@ -16966,7 +16981,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u62A5\u544A\u6BCD\u8230\uFF0C\u6211\u5DF2\u5B89\u5168\u7740\u9646\uFF0C\u8BF7\u6C42\u51FA\u8231\u3002"
+          m_StringArgument: "\u54C8\uFF0C\u627E\u5230\u4E00\u7247\u7A7A\u5730\uFF0C\u526F\u5B98\uFF0C\u6211\u5DF2\u5B89\u5168\u7740\u9646\uFF0C\u8BF7\u6C42\u51FA\u8231\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1277566993}
@@ -16977,7 +16992,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -16989,7 +17004,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -17001,7 +17016,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -17917,7 +17932,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u662F\u9632~\u62A4~\u670D~\uFF0C\u518D\u6D4B\u8BD5\u4E00\u4E0B\u52A9\u529B\u88C5\u7F6E\uFF0C\u8BF7\u5C1D\u8BD5\u8DF3\u8DC3\u3002"
+          m_StringArgument: "\u526F\u5B98\uFF1A\u662F\u9632~\u62A4~\u670D~\uFF0C\u518D\u6D4B\u8BD5\u4E00\u4E0B\u52A9\u529B\u88C5\u7F6E\uFF0C\u8BF7\u5C1D\u8BD5\u8DF3\u8DC3\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1871299113}
@@ -17928,7 +17943,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -17940,7 +17955,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 4
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -17952,7 +17967,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
