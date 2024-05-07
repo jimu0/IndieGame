@@ -911,9 +911,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   viewDirection: 0
   viewFov: 360
-  viewDistance: 8
+  viewDistance: 10
   timeBeforeTargetLost: 1
-  meleeRange: 4
+  meleeRange: 3.5
   meleeDamager: {fileID: 114303490521682168}
   contactDamager: {fileID: 114896150691463488}
   attackDash: 1
