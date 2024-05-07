@@ -292,124 +292,6 @@ Transform:
   m_Father: {fileID: 1916347139}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.444}
---- !u!1001 &50350071
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1009638384006160, guid: 114c5f41fd4099445a42c1d9bd01f222, type: 3}
-      propertyPath: m_Name
-      value: DialogueCanvas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 44
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224260303033278428, guid: 114c5f41fd4099445a42c1d9bd01f222,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 114c5f41fd4099445a42c1d9bd01f222, type: 3}
 --- !u!1 &63398448
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +834,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: ActivateCanvasWithText
         m_Mode: 5
@@ -961,10 +843,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u8D44\u6599\u663E\u793A\uFF0C\u706B\u661F\u79FB\u6C11\u53F7\u539F\u672C\u8BA1\u5212\u627F\u8F7D5000\u540D\u80B2\u9F84\u4EBA\u53E3\uFF0C\u6700\u540E\u5374\u63A5\u6536\u8FD1\u4E00\u4E07\u540D\u4E58\u5BA2\uFF0C"
+          m_StringArgument: "\u8D44\u6599\u663E\u793A\uFF0C\u706B\u661F\u79FB\u6C11\u53F7\u539F\u672C\u8BA1\u5212\u627F\u8F7D5000\u540D\u80B2\u9F84\u4EBA\u53E3\uFF0C\u6700\u540E\u5374\u63A5\u6536\u8FD1\u4E00\u4E07\u540D\u4E58\u5BA2\uFF0C"
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: DeactivateCanvasWithDelay
         m_Mode: 4
@@ -1734,7 +1616,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: ActivateCanvasWithText
         m_Mode: 5
@@ -1743,10 +1625,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u597D\u4E86\uFF0C\u961F\u957F\uFF0C\u4E13\u5FC3\u4EFB\u52A1\u5427\u3002"
+          m_StringArgument: "\u597D\u4E86\uFF0C\u961F\u957F\uFF0C\u4E13\u5FC3\u4EFB\u52A1\u5427\u3002"
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: DeactivateCanvasWithDelay
         m_Mode: 4
@@ -3339,7 +3221,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: ActivateCanvasWithText
         m_Mode: 5
@@ -3348,10 +3230,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u4E3A\u4E86\u5C3D\u53EF\u80FD\u7684\u51CF\u8F7B\u91CD\u91CF\uFF0C\u706B\u661F\u79FB\u6C11\u53F7\u5E76\u6CA1\u6709\u643A\u5E26\u5176\u4ED6\u52A8\u7269\uFF0C\u800C\u4E14\u53EA\u5728\u4EBA\u7C7B\u751F\u6D3B\u7684\u6838\u5FC3\u8231\u6BB5\u91C7\u53D6\u4E86\u9632\u8F90\u5C04\u63AA\u65BD\u2026\u2026"
+          m_StringArgument: "\u4E3A\u4E86\u5C3D\u53EF\u80FD\u7684\u51CF\u8F7B\u91CD\u91CF\uFF0C\u706B\u661F\u79FB\u6C11\u53F7\u5E76\u6CA1\u6709\u643A\u5E26\u5176\u4ED6\u52A8\u7269\uFF0C\u800C\u4E14\u53EA\u5728\u4EBA\u7C7B\u751F\u6D3B\u7684\u6838\u5FC3\u8231\u6BB5\u91C7\u53D6\u4E86\u9632\u8F90\u5C04\u63AA\u65BD\u2026\u2026"
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: DeactivateCanvasWithDelay
         m_Mode: 4
@@ -4381,7 +4263,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u62B1\u6B49"
+          m_StringArgument: "\u660E\u767D"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 902076502}
@@ -8260,18 +8142,6 @@ Transform:
   m_Father: {fileID: 1916347139}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1239330788 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114751280143084318, guid: 114c5f41fd4099445a42c1d9bd01f222,
-    type: 3}
-  m_PrefabInstance: {fileID: 50350071}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e278214686a68c643ba1e29516fe4fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1265248490
 GameObject:
   m_ObjectHideFlags: 0
@@ -24658,8 +24528,139 @@ Transform:
   - {fileID: 286686043}
   - {fileID: 669586681}
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1530559939
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419372100079854911, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631346174016081651, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueCanvas2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb, type: 3}
+--- !u!114 &1530559940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8528841817019257341, guid: 9a6d5845b3a88dd4990c2d660d1bc6cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530559939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e278214686a68c643ba1e29516fe4fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1531935807
 GameObject:
   m_ObjectHideFlags: 0
@@ -25440,7 +25441,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: ActivateCanvasWithText
         m_Mode: 5
@@ -25449,10 +25450,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u6211\u7684\u610F\u601D\u662F\uFF0C\u8FD9\u4E9B\u5BB6\u4F19\u75AF\u4E86\u5417\uFF0C\u6309\u7167\u8FD9\u4E2A\u8BA1\u5212\uFF0C\u7B2C\u4E00\u4EE3\u79FB\u6C11\u8981\u5403\u4E0A8\u5E74\u7684\u538B\u7F29\u5E72\u7CAE\u3002"
+          m_StringArgument: "\u6211\u7684\u610F\u601D\u662F\uFF0C\u8FD9\u4E9B\u5BB6\u4F19\u75AF\u4E86\u5417\uFF0C\u6309\u7167\u8FD9\u4E2A\u8BA1\u5212\uFF0C\u7B2C\u4E00\u4EE3\u79FB\u6C11\u8981\u5403\u4E0A8\u5E74\u7684\u538B\u7F29\u5E72\u7CAE\u3002"
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1239330788}
+      - m_Target: {fileID: 1530559940}
         m_TargetAssemblyTypeName: Gamekit2D.DialogueCanvasController, Assembly-CSharp
         m_MethodName: DeactivateCanvasWithDelay
         m_Mode: 4

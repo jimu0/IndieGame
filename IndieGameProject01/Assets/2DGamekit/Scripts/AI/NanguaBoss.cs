@@ -1,4 +1,5 @@
 using System.Collections;
+using Gamekit2D;
 using UnityEngine;
 
 namespace _2DGamekit.Scripts.AI
@@ -28,6 +29,9 @@ namespace _2DGamekit.Scripts.AI
         public float deathDelay = 8.0f; // 死亡后延迟时间
         private Coroutine deathCoroutine;
         public GameObject hit1;
+        
+        public TransitionPoint TransitionPoint;
+        public GameObject text; 
         private void Start()
         {
             head = 5;
@@ -55,6 +59,8 @@ namespace _2DGamekit.Scripts.AI
         {
             aliveObj.SetActive(false);
             dieAinObj.SetActive(true);
+            TransitionPoint.gameObject.SetActive(true);
+            text.SetActive(true);
             StartDeathTimer();
         }
     
@@ -74,11 +80,12 @@ namespace _2DGamekit.Scripts.AI
 
             goHome();
         }
-    
+
         // 死亡后执行方法
         private void goHome()
         {
             Debug.Log("Player is going home!");
+            TransitionPoint.Transition();
         }
 
         public void Jineng(GameObject obj,bool b)
