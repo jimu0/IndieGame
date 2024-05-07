@@ -26,15 +26,19 @@ namespace _2DGamekit.Scripts.AI
                     break;
                 case 2:
                     namguaBoss.head2Alive = false;
+                    namguaBoss.Jineng(namguaBoss.hit1, true);
                     break;
                 case 3:
                     namguaBoss.head3Alive = false;
+                    namguaBoss.Jineng(namguaBoss.hit1, true);
                     break;
                 case 4:
                     namguaBoss.head4Alive = false;
+                    namguaBoss.Jineng(namguaBoss.hit1, true);
                     break;
                 case 5:
                     namguaBoss.head5Alive = false;
+                    namguaBoss.Jineng(namguaBoss.hit1, true);
                     break;
             }
             namguaBoss.CutOffAHead();

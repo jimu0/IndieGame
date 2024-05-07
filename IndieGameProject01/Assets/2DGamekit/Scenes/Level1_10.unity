@@ -10481,7 +10481,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u90A3\uFF0C\u6211\u4EEC\u8981\u5E26\u8FD9\u4E9B\u6837...\u4EBA\u7C7B\u56DE\u53BB\u5417\uFF1F"
+          m_StringArgument: "\u90A3\uFF0C\u6211\u4EEC\u8981\u5E26\u8FD9\u4E9B\u6837...\u4EBA\u7C7B\u56DE\u53BB\u5417\uFF1F"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114751278848112559}
@@ -11375,7 +11375,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u8FD9\u662F\u4EC0\u4E48\u5440\uFF01"
+          m_StringArgument: "\u8FD9\u5230\u5E95\u662F\u4EC0\u4E48\u4E1C\u897F\uFF01"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114751278848112559}
@@ -13769,7 +13769,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u526F\u5B98\uFF1A\u6240\u4EE5\uFF0C\u4ED6\u4EEC\u7684\u57FA\u56E0\u6539\u9020\u4ECE\u53E6\u4E00\u79CD\u89D2\u5EA6\u662F\u6210\u529F\u7684\u3002"
+          m_StringArgument: "\u6240\u4EE5\uFF0C\u4ED6\u4EEC\u7684\u57FA\u56E0\u6539\u9020\u4ECE\u53E6\u4E00\u79CD\u89D2\u5EA6\u662F\u6210\u529F\u7684\u3002"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114751278848112559}
@@ -15841,12 +15841,12 @@ PrefabInstance:
     - target: {fileID: 1778422642006627616, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2197854787597628920, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2417321269417261870, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
@@ -15856,7 +15856,7 @@ PrefabInstance:
     - target: {fileID: 2417321269417261870, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: deathDelay
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2417321269417261870, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
@@ -15871,17 +15871,17 @@ PrefabInstance:
     - target: {fileID: 5011989365765204518, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6423753014846925069, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6838781564442543165, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8972140711948740162, guid: d4ab121d208b7d643a250cafd1e922ea,
         type: 3}

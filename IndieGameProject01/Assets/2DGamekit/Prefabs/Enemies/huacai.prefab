@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteFaceLeft: 0
-  speed: 1
+  speed: 3
   gravity: 10
   projectilePrefab: {fileID: 0}
   viewDirection: 0

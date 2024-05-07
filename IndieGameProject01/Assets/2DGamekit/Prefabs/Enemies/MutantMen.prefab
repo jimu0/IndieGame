@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteFaceLeft: 0
-  speed: 1
+  speed: 2
   gravity: 10
   projectilePrefab: {fileID: 0}
   viewDirection: 0
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960138f0450083543ad1d17e1352019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 9
+  startingHealth: 15
   invulnerableAfterDamage: 0
   invulnerabilityDuration: 2
   disableOnDeath: 0

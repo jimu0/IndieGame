@@ -482,12 +482,12 @@ namespace Gamekit2D
             if (damageable.CurrentHealth <= 0)
                 return;
 
-            m_Animator.SetTrigger(m_HashHitPara);
+            //m_Animator.SetTrigger(m_HashHitPara);
 
-            Vector2 throwVector = new Vector2(0, 0.01f);
+            Vector2 throwVector = new Vector2(0, 0.00f);
             Vector2 damagerToThis = damager.transform.position - transform.position;
 
-            throwVector.x = Mathf.Sign(damagerToThis.x) * -0.01f;
+            throwVector.x = Mathf.Sign(damagerToThis.x) * -0.00f;
             m_MoveVector = throwVector;
 
             if (m_FlickeringCoroutine != null)
