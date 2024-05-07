@@ -59,6 +59,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 73af1a81152880f458ae1686b7213e0a, type: 3}
   - {fileID: 21300000, guid: 8ba6a6227d0034540a14f3b4453e35d1, type: 3}
   - {fileID: 21300000, guid: 467dd9323cbcdba4bb58bce9752a1ea5, type: 3}
+  - {fileID: 21300000, guid: a9f3f872ae6449f438959bf8e1abc38c, type: 3}
   - {fileID: 21300000, guid: 7d03768213af5f94d96e27a3a28537b0, type: 3}
   - {fileID: 21300000, guid: 35af4b234ae4cfe43a44db4c85dfb12d, type: 3}
   - {fileID: 21300000, guid: 77bb4cd38f302ca449e6b0ce96225289, type: 3}
@@ -70,6 +71,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7c4f8cb5e111b9d49aac5bad4318ae28, type: 3}
   - {fileID: 21300000, guid: e58ed2e54f53b4648bcfacadbfdb476b, type: 3}
   - {fileID: 21300000, guid: 5334240665b294d4781ec0cfd23ee86b, type: 3}
+  - {fileID: 21300000, guid: 61de28260edfb4e448e00755067590a6, type: 3}
   - {fileID: 21300000, guid: 3d6b99369d44a5148bce817bfa4c0463, type: 3}
   - {fileID: 21300000, guid: e3318b963552ea94990070ec4596aa59, type: 3}
   - {fileID: 21300000, guid: e60123a639a9950479c80b89f3ef543e, type: 3}
@@ -119,6 +121,7 @@ SpriteAtlas:
   - Level1_beijing4_tex
   - Level1_jianzhu36_tex
   - Level1_jianzhu12_tex
+  - Level1_texiao1_tex
   - Level1_yumi4_tex
   - Level1_jianzhu16_tex
   - Level1_jianzhu19_tex
@@ -130,6 +133,7 @@ SpriteAtlas:
   - Level1_jianzhu20_tex
   - Level1_jianzhu26_tex
   - Level1_beijing7_tex
+  - Level1_yuanqiu1_tex
   - Level1_jianzhu35_tex
   - Level1_yumi6_tex
   - pingtai2
