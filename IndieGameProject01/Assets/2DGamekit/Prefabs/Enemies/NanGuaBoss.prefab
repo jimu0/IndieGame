@@ -1294,7 +1294,7 @@ MonoBehaviour:
   spriteFaceLeft: 1
   speed: 0
   gravity: 20
-  projectilePrefab: {fileID: 114793620227127496, guid: 7a9b8f4adaceb7d469f3f02edc8472d5,
+  projectilePrefab: {fileID: 114793620227127496, guid: 0e50206e377f1564981e016cbe4cd332,
     type: 3}
   viewDirection: 0
   viewFov: 360
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   spriteFaceLeft: 1
   speed: 0
   gravity: 20
-  projectilePrefab: {fileID: 114793620227127496, guid: 7a9b8f4adaceb7d469f3f02edc8472d5,
+  projectilePrefab: {fileID: 114793620227127496, guid: ddc4c56e732643f44aa5ae9515993b77,
     type: 3}
   viewDirection: 0
   viewFov: 360
@@ -1799,8 +1799,10 @@ MonoBehaviour:
   head5Alive: 1
   dieAinObj: {fileID: 4451528885196082945}
   aliveObj: {fileID: 5086189988140188925}
-  deathDelay: 8
+  deathDelay: 10
   hit1: {fileID: 7673487034628566750}
+  TransitionPoint: {fileID: 0}
+  text: {fileID: 0}
 --- !u!1 &4451528885196082945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,7 +2848,7 @@ MonoBehaviour:
   spriteFaceLeft: 1
   speed: 0
   gravity: 20
-  projectilePrefab: {fileID: 114793620227127496, guid: 0e50206e377f1564981e016cbe4cd332,
+  projectilePrefab: {fileID: 114793620227127496, guid: 72547b8e0f5391849be000feed2782a7,
     type: 3}
   viewDirection: 0
   viewFov: 360
@@ -4984,7 +4986,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e9b6bb748ea17d547b046b0edcf6fb69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9b6bb748ea17d547b046b0edcf6fb69,
         type: 3}
@@ -6486,6 +6488,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5356098311301609900}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7327119449165387671
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086189988140188925}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3db439960d5ed9a42bc121b38c3475e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7327119447943100804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7317,7 +7339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469272928664028, guid: 0fce9aca7785d364a90b48c98c3a51b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.38
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 4469272928664028, guid: 0fce9aca7785d364a90b48c98c3a51b6, type: 3}
       propertyPath: m_LocalPosition.y
