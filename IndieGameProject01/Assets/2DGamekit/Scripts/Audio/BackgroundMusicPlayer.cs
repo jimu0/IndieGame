@@ -136,6 +136,7 @@ namespace Gamekit2D
         //多长时间后播放音乐
         IEnumerator PlayMusicAfterDelay(float delay)
         {
+            m_MusicAudioSource.Stop();
             yield return new WaitForSeconds(delay); // 等待指定的秒数  
             if (m_MusicAudioSource != null && musicAudioClip != null)
             {
