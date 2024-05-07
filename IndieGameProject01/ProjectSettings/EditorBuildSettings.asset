@@ -95,4 +95,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/2DGamekit/Scenes/Level1_10.unity
     guid: d3faaec364829c14cbd8d8d05756c325
+  - enabled: 1
+    path: Assets/2DGamekit/Scenes/Start_Video.unity
+    guid: 1b3ebd14f52d7554fadc922b0e661f24
   m_configObjects: {}

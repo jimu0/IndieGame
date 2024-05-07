@@ -46,13 +46,13 @@ namespace Gamekit2D
         //once that stack is empty, it revert to the musicAudioClip
         protected Stack<AudioClip> m_MusicStack = new Stack<AudioClip>();
 
-        void Awake ()
+        void Awake()
         {
             // If there's already a player...
             if (Instance != null && Instance != this)
             {
                 //...if it use the same music clip, we set the audio source to be at the same position, so music don't restart
-                if(Instance.musicAudioClip == musicAudioClip)
+                if (Instance.musicAudioClip == musicAudioClip)
                 {
                     m_TransferMusicTime = true;
                 }
@@ -66,12 +66,12 @@ namespace Gamekit2D
                 // ... destroy the pre-existing player.
                 m_OldInstanceToDestroy = Instance;
             }
-        
+
             s_Instance = this;
 
-            DontDestroyOnLoad (gameObject);
+            DontDestroyOnLoad(gameObject);
 
-            m_MusicAudioSource = gameObject.AddComponent<AudioSource> ();
+            m_MusicAudioSource = gameObject.AddComponent<AudioSource>();
             m_MusicAudioSource.clip = musicAudioClip;
             m_MusicAudioSource.outputAudioMixerGroup = musicOutput;
             m_MusicAudioSource.loop = true;
@@ -98,7 +98,10 @@ namespace Gamekit2D
 
         private void Start()
         {
-            //if delete & trasnfer time only in Start so we avoid the small gap that doing everything at the same time in Awake would create 
+            //开始多少秒后播放音乐
+            StartCoroutine(PlayMusicAfterDelay(3.0f)); // X秒后播放音乐
+
+           // if delete & trasnfer time only in Start so we avoid the small gap that doing everything at the same time in Awake would create
             if (m_OldInstanceToDestroy != null)
             {
                 if (m_TransferAmbientTime) m_AmbientAudioSource.timeSamples = m_OldInstanceToDestroy.m_AmbientAudioSource.timeSamples;
@@ -110,18 +113,17 @@ namespace Gamekit2D
 
         private void Update()
         {
-            if(m_MusicStack.Count > 0)
+            if (m_MusicStack.Count > 0)
             {
                 //isPlaying will be false once the current clip end up playing
-                if(!m_MusicAudioSource.isPlaying)
+                if (!m_MusicAudioSource.isPlaying)
                 {
                     m_MusicStack.Pop();
-                    if(m_MusicStack.Count > 0)
+                    if (m_MusicStack.Count > 0)
                     {
                         m_MusicAudioSource.clip = m_MusicStack.Peek();
                         m_MusicAudioSource.Play();
-                    }
-                    else
+                    } else
                     {//Back to looping music clip
                         m_MusicAudioSource.clip = musicAudioClip;
                         m_MusicAudioSource.loop = true;
@@ -130,6 +132,20 @@ namespace Gamekit2D
                 }
             }
         }
+
+        //多长时间后播放音乐
+        IEnumerator PlayMusicAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay); // 等待指定的秒数  
+            if (m_MusicAudioSource != null && musicAudioClip != null)
+            {
+                m_MusicAudioSource.PlayOneShot(musicAudioClip); // 播放音乐  
+            } else
+            {
+                Debug.LogError("AudioSource or AudioClip is not assigned!");
+            }
+        }
+
 
         public void PushClip(AudioClip clip)
         {
