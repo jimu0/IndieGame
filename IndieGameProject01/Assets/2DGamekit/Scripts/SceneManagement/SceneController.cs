@@ -109,12 +109,12 @@ namespace Gamekit2D
             
             if (m_PlayerInput == null)
                 m_PlayerInput = FindObjectOfType<PlayerInput>();
-            m_PlayerInput.ReleaseControl(resetInputValues);
+            if(m_PlayerInput) m_PlayerInput.ReleaseControl(resetInputValues);
             yield return StartCoroutine(ScreenFader.FadeSceneOut(ScreenFader.FadeType.Loading));
             PersistentDataManager.ClearPersisters();
             yield return SceneManager.LoadSceneAsync(newSceneName);
-            m_PlayerInput = FindObjectOfType<PlayerInput>();
-            m_PlayerInput.ReleaseControl(resetInputValues);
+            if(m_PlayerInput) m_PlayerInput = FindObjectOfType<PlayerInput>();
+            if(m_PlayerInput) m_PlayerInput.ReleaseControl(resetInputValues);
             PersistentDataManager.LoadAllData();
             SceneTransitionDestination entrance = GetDestination(destinationTag);
             SetEnteringGameObjectLocation(entrance);
@@ -122,7 +122,7 @@ namespace Gamekit2D
             if(entrance != null)
                 entrance.OnReachDestination.Invoke();
             yield return StartCoroutine(ScreenFader.FadeSceneIn());
-            m_PlayerInput.GainControl();
+            if(m_PlayerInput) m_PlayerInput.GainControl();
 
             m_Transitioning = false;
         }
@@ -147,9 +147,12 @@ namespace Gamekit2D
                 return;
             }
             Transform entranceLocation = entrance.transform;
-            Transform enteringTransform = entrance.transitioningGameObject.transform;
-            enteringTransform.position = entranceLocation.position;
-            enteringTransform.rotation = entranceLocation.rotation;
+            if (entrance.transitioningGameObject)
+            {
+                Transform enteringTransform = entrance.transitioningGameObject.transform;
+                enteringTransform.position = entranceLocation.position;
+                enteringTransform.rotation = entranceLocation.rotation;
+            }
         }
 
         protected void SetupNewScene(TransitionPoint.TransitionType transitionType, SceneTransitionDestination entrance)
